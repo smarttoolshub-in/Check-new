@@ -1,1 +1,1936 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TargetTire - Elite Exam Intelligence & Adaptive Testing Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Modular Data Links Preserved -->
+  <script src="math-data.js"></script>
+  <script src="reasoning-data.js"></script>
+  <script src="science-data.js"></script>
+  <script src="social-science-data.js"></script>
+  <script src="computer-data.js"></script>
+  <script src="english-data.js"></script>
+  <script src="current-affairs-data.js"></script>
+  <script src="exams-data.js"></script>
+  <script src="exam-content.js"></script>
+  <script src="syllabus-data.js"></script>
+  <script src="exam-notification-data.js"></script>
+  <script src="pyq-ssc.js"></script>
+  <script src="pyq-railway.js"></script>
+  <script src="pyq-banking.js"></script>
+  <script src="pyq-upsc.js"></script>
+  <script src="pyq-bihar.js"></script>
+  <script src="mocks-data.js"></script>
+  <script src="ca-data.js"></script>
 
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            tier: {
+              dark: '#0b0f19',
+              card: '#131b2e',
+              border: '#1e293b',
+              accent: '#6366f1',
+              teal: '#14b8a6',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    @keyframes tickerSlide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerSlide 28s linear infinite;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .glow-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -12px rgba(99, 102, 241, 0.28), 0 0 20px -5px rgba(20, 184, 166, 0.2);
+      border-color: rgba(99, 102, 241, 0.55);
+    }
+
+    .quick-chip {
+      transition: all 0.2s ease;
+    }
+    .quick-chip:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 25px -8px rgba(99, 102, 241, 0.35);
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 via-indigo-50/35 to-teal-50/30 dark:from-[#0b0f19] dark:via-[#0b0f19] dark:to-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col pb-20 md:pb-0 transition-colors duration-300">
+
+  <!-- 1. TOP LIVE TICKER BAR -->
+  <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-teal-600 dark:from-indigo-950 dark:via-slate-900 dark:to-teal-950 text-white border-b border-indigo-500/20 overflow-hidden py-2 text-xs relative z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 flex items-center gap-3">
+      <span class="bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase px-2.5 py-0.5 rounded-full shadow flex items-center gap-1.5 shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-rose-600 animate-ping"></span> <span data-i18n="liveUpdates">LIVE UPDATES</span>
+      </span>
+      <div class="overflow-hidden w-full relative">
+        <div class="ticker-track items-center gap-8 text-[11px] font-semibold">
+          <span onclick="switchTab('vault')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker1">🔥 SSC CGL 2026 Tier-1 Live Mock Test Series Active — Attempt Free Demo Now!</span>
+          <span class="text-indigo-300">•</span>
+          <span onclick="switchTab('pyq')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker2">📢 RRB NTPC & Group-D Official Shift-wise PYQ Papers Updated</span>
+          <span class="text-indigo-300">•</span>
+          <span onclick="openCurrentAffairsModal('daily')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker3">📰 15 October 2026 Bilingual Current Affairs & Quiz Loaded</span>
+          <span class="text-indigo-300">•</span>
+          <span onclick="openSpecificExamWorkspace('bihar_ssc')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker4">👮 Bihar Police & BSSC Inter Level Special Practice Sets Live</span>
+          <span class="text-indigo-300">•</span>
+          <span onclick="switchTab('vault')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker1">🔥 SSC CGL 2026 Tier-1 Live Mock Test Series Active — Attempt Free Demo Now!</span>
+          <span class="text-indigo-300">•</span>
+          <span onclick="switchTab('pyq')" class="cursor-pointer hover:text-amber-200 transition" data-i18n="ticker2">📢 RRB NTPC & Group-D Official Shift-wise PYQ Papers Updated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header id="main-site-header" class="bg-white/90 dark:bg-[#0b0f19]/95 backdrop-blur-xl border-b border-indigo-100 dark:border-slate-800/80 sticky top-0 z-40 shadow-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-3">
+        <!-- Left: 3-Line Smart Trigger + Brand Logo + Exam Selector -->
+        <div class="flex items-center gap-2.5 sm:gap-3.5">
+          <button onclick="toggleMobileDrawer()" aria-label="Open App Menu" class="w-10 h-10 rounded-xl bg-indigo-50/90 dark:bg-slate-900 border border-indigo-200/70 dark:border-slate-800 flex items-center justify-center text-indigo-700 dark:text-slate-200 hover:border-indigo-500 transition cursor-pointer shrink-0 shadow-sm" title="Quick App Drawer">
+            <i class="fa-solid fa-bars-staggered text-base"></i>
+          </button>
+
+          <div class="flex items-center space-x-2.5 cursor-pointer group" onclick="switchTab('dashboard')">
+            <div class="w-9 h-9 bg-gradient-to-br from-indigo-600 via-indigo-500 to-teal-500 text-white rounded-xl flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition duration-300 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity="0.4"/>
+                <circle cx="12" cy="12" r="5" stroke="currentColor"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">Target<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-teal-500 dark:from-indigo-400 dark:to-teal-400">Tire</span></span>
+              <span class="hidden sm:block text-[8px] tracking-widest uppercase text-slate-400 font-bold" data-i18n="headerSub">Precision Intelligence</span>
+            </div>
+          </div>
+
+          <div class="relative hidden md:block">
+            <button onclick="toggleExamDropdown(event)" class="flex items-center gap-2 text-xs font-bold px-3 py-2 rounded-xl bg-slate-100/90 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-500 transition cursor-pointer">
+              <i class="fa-solid fa-graduation-cap text-indigo-600 dark:text-indigo-400"></i>
+              <span data-i18n="examsBtn">My Exams</span>
+              <span id="header-pinned-count" class="px-1.5 py-0.5 text-[10px] rounded-full bg-indigo-600 text-white font-extrabold">2</span>
+              <i id="exam-dropdown-icon" class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div id="exam-dropdown-menu" onclick="event.stopPropagation()" class="absolute left-0 mt-2 w-80 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl py-2.5 hidden z-50">
+              <div class="px-4 py-2 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <span class="text-[10px] uppercase font-extrabold text-slate-400" data-i18n="selectExamCat">Click (+) to Add Your Exam</span>
+                <button onclick="openExamSelectorModal()" class="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View All</button>
+              </div>
+              <div id="header-exams-add-list" class="p-2 space-y-1.5 text-xs font-semibold max-h-80 overflow-y-auto"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Clean 4-Pill Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200/80 dark:border-slate-800">
+          <button onclick="switchTab('dashboard')" class="nav-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-white dark:bg-slate-800 shadow-sm transition cursor-pointer" data-tab="dashboard"><i class="fa-solid fa-house mr-1"></i> <span data-i18n="navHome">Home</span></button>
+          <button onclick="switchTab('practice')" class="nav-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer" data-tab="practice"><i class="fa-solid fa-book-open text-teal-600 dark:text-teal-400 mr-1"></i> <span data-i18n="navPractice">Practice</span></button>
+          <button onclick="switchTab('vault')" class="nav-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer" data-tab="vault"><i class="fa-solid fa-shield-halved text-amber-500 mr-1"></i> <span data-i18n="navMocks">Mocks</span></button>
+          <button onclick="switchTab('pyq')" class="nav-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer" data-tab="pyq"><i class="fa-solid fa-file-lines text-rose-500 mr-1"></i> <span data-i18n="navPYQ">PYQ Hub</span></button>
+        </nav>
+
+        <!-- Right: Search + Strictly 2-Option Language (English / हिंदी) + Theme + Profile -->
+        <div class="flex items-center gap-2">
+          <div class="relative hidden sm:block w-44 xl:w-56">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input id="global-search-input" type="search" oninput="handleQuickSearch(this.value)" data-i18n-placeholder="searchPlaceholder" placeholder="Search Exams, PYQ..." class="w-full h-9 pl-8 pr-3 rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:bg-white transition">
+            <div id="quick-search-dropdown" class="hidden absolute left-0 right-0 mt-2 bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-2 z-50 max-h-64 overflow-y-auto"></div>
+          </div>
+
+          <!-- Strictly 2 Language Options: English & हिंदी -->
+          <div class="relative flex items-center bg-indigo-50/90 dark:bg-slate-900 border border-indigo-200/80 dark:border-slate-800 rounded-xl px-2.5 py-1.5">
+            <i class="fa-solid fa-language text-indigo-600 dark:text-indigo-400 text-xs mr-1.5"></i>
+            <select id="lang-selector" onchange="switchLanguage(this.value)" aria-label="Select Language" class="bg-transparent text-[11px] font-extrabold text-indigo-950 dark:text-slate-200 focus:outline-none cursor-pointer">
+              <option value="en" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">English</option>
+              <option value="hi" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">हिंदी</option>
+            </select>
+          </div>
+
+          <button onclick="toggleTheme()" class="w-9 h-9 bg-amber-50 dark:bg-slate-900 border border-amber-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-amber-600 dark:text-slate-300 hover:border-amber-400 transition cursor-pointer shadow-sm" title="Switch Light / Dark Mode">
+            <i id="theme-icon" class="fa-solid fa-sun text-xs text-amber-500"></i>
+          </button>
+
+          <button onclick="openStudentProfileModal()" class="bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-500 hover:to-teal-500 text-white font-bold text-xs px-3 py-2 rounded-xl shadow-sm transition flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-user-astronaut"></i> <span class="hidden xl:inline" data-i18n="profileBtn">Profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- APP-STYLE BOTTOM SHEET MENU (Opens from bottom like a native mobile app) -->
+  <div id="mobile-navigation-drawer" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden flex-col justify-end transition-opacity">
+    <div class="flex-1 w-full" onclick="toggleMobileDrawer()"></div>
+
+    <div class="bg-white dark:bg-[#131b2e] w-full max-w-lg mx-auto rounded-t-3xl sm:rounded-3xl sm:mb-6 border-t sm:border border-slate-200 dark:border-slate-800 shadow-2xl p-5 max-h-[82vh] overflow-y-auto">
+      <div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-4 cursor-pointer" onclick="toggleMobileDrawer()"></div>
+
+      <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-indigo-500/5 to-teal-500/10 border border-indigo-500/20 mb-4">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-teal-500 text-white flex items-center justify-center text-sm font-extrabold shadow shrink-0">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <h4 class="text-xs font-extrabold text-slate-900 dark:text-white truncate">Aspirant Hub</h4>
+              <span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400">🔥 3d Streak</span>
+            </div>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 truncate">92.4% Accuracy • Top 1.2% AIR</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button onclick="openStudentProfileModal(); toggleMobileDrawer();" class="px-2.5 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-[10px] cursor-pointer">Profile</button>
+          <button onclick="toggleMobileDrawer()" class="w-8 h-8 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-500 hover:text-rose-500 flex items-center justify-center cursor-pointer">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 px-1 mb-2.5" data-i18n="quickShortcutsLabel">Quick App Shortcuts</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-4">
+        <button onclick="switchTab('my_exams'); toggleMobileDrawer();" class="p-3 rounded-2xl bg-indigo-50/70 dark:bg-[#0b0f19] border border-indigo-200/70 dark:border-slate-800 hover:border-indigo-500 flex flex-col items-center text-center gap-1.5 cursor-pointer transition">
+          <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-thumbtack"></i></div>
+          <span class="text-[11px] font-extrabold text-slate-900 dark:text-white">My Exams</span>
+          <span id="drawer-pinned-badge" class="text-[9px] font-bold text-indigo-600 dark:text-indigo-400">2 Added</span>
+        </button>
+
+        <button onclick="openCurrentAffairsModal('daily'); toggleMobileDrawer();" class="p-3 rounded-2xl bg-rose-50/70 dark:bg-[#0b0f19] border border-rose-200/70 dark:border-slate-800 hover:border-rose-500 flex flex-col items-center text-center gap-1.5 cursor-pointer transition">
+          <div class="w-9 h-9 rounded-xl bg-rose-500 text-white flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-newspaper"></i></div>
+          <span class="text-[11px] font-extrabold text-slate-900 dark:text-white">Daily CA</span>
+          <span class="text-[9px] font-bold text-rose-500">15 Oct Quiz</span>
+        </button>
+
+        <button onclick="switchTab('chapters'); toggleMobileDrawer();" class="p-3 rounded-2xl bg-teal-50/70 dark:bg-[#0b0f19] border border-teal-200/70 dark:border-slate-800 hover:border-teal-500 flex flex-col items-center text-center gap-1.5 cursor-pointer transition">
+          <div class="w-9 h-9 rounded-xl bg-teal-600 text-white flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-book-bookmark"></i></div>
+          <span class="text-[11px] font-extrabold text-slate-900 dark:text-white">My Chapters</span>
+          <span class="text-[9px] font-bold text-teal-600 dark:text-teal-400">Self-Repo +</span>
+        </button>
+
+        <button onclick="switchTab('analytics'); toggleMobileDrawer();" class="p-3 rounded-2xl bg-purple-50/70 dark:bg-[#0b0f19] border border-purple-200/70 dark:border-slate-800 hover:border-purple-500 flex flex-col items-center text-center gap-1.5 cursor-pointer transition">
+          <div class="w-9 h-9 rounded-xl bg-purple-600 text-white flex items-center justify-center text-sm shadow-sm"><i class="fa-solid fa-chart-pie"></i></div>
+          <span class="text-[11px] font-extrabold text-slate-900 dark:text-white">Telemetry</span>
+          <span class="text-[9px] font-bold text-purple-600 dark:text-purple-400">Self Report</span>
+        </button>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden mb-3">
+        <button onclick="toggleDrawerExamsList()" class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-[#0b0f19] text-xs font-extrabold text-slate-800 dark:text-slate-200 cursor-pointer">
+          <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-plus text-indigo-500"></i> Add / Manage Target Exams (+)</span>
+          <i id="drawer-exams-chevron" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+        </button>
+        <div id="drawer-exams-list" class="hidden bg-white dark:bg-[#131b2e] px-3 py-2 space-y-1.5 text-xs border-t border-slate-200 dark:border-slate-800 max-h-48 overflow-y-auto"></div>
+      </div>
+
+      <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-200 dark:border-slate-800 text-xs">
+        <button onclick="toggleTheme()" class="flex-1 py-2 px-3 rounded-xl bg-amber-500/10 text-amber-700 dark:text-amber-300 font-bold cursor-pointer flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-circle-half-stroke"></i> Light / Dark
+        </button>
+        <button onclick="cycleLanguage()" class="flex-1 py-2 px-3 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold cursor-pointer flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-language"></i> <span id="drawer-lang-btn-label">English / हिंदी</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENT PROFILE MODAL -->
+  <div id="student-profile-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#131b2e] w-full max-w-md rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6">
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <i class="fa-solid fa-user-astronaut text-indigo-500"></i> Student Intelligence Profile
+        </h3>
+        <button onclick="closeStudentProfileModal()" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-rose-500 cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="p-4 rounded-2xl bg-indigo-50/60 dark:bg-[#0b0f19] border border-indigo-100 dark:border-slate-800 mb-4 flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-teal-500 text-white flex items-center justify-center text-lg font-extrabold">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <div>
+          <h4 class="text-sm font-extrabold text-slate-900 dark:text-white">TargetTire Aspirant</h4>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Active Streak: 🔥 3 Days • Accuracy: 92.4%</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2.5 text-xs mb-4">
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">
+          <p class="text-[10px] text-slate-400 uppercase font-bold">Projected AIR</p>
+          <p class="text-sm font-extrabold text-indigo-600 dark:text-indigo-400 mt-0.5">Top 1.2%</p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">
+          <p class="text-[10px] text-slate-400 uppercase font-bold">Tests Completed</p>
+          <p class="text-sm font-extrabold text-teal-600 dark:text-teal-400 mt-0.5">14 Sets</p>
+        </div>
+      </div>
+      <button onclick="closeStudentProfileModal(); switchTab('analytics');" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-3 rounded-xl shadow cursor-pointer">
+        View Full Telemetry & Test Report
+      </button>
+    </div>
+  </div>
+
+  <!-- ADD / MANAGE EXAMS (+) MODAL -->
+  <div id="exam-selector-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#131b2e] w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col max-h-[88vh]">
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-plus text-indigo-500"></i> <span data-i18n="addExamModalTitle">Add Your Target Exams</span>
+          </h3>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="addExamModalSub">
+            Click (+ Add) next to only the exams you are preparing for so their PYQs and Mocks appear directly in your hub.
+          </p>
+        </div>
+        <button onclick="closeExamSelectorModal()" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-rose-500 cursor-pointer shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="modal-exams-catalog-grid" class="flex-grow overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-3 pr-1 my-2"></div>
+
+      <div class="pt-4 mt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3">
+        <span id="modal-selected-Summary" class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400">2 Exams Added</span>
+        <button onclick="closeExamSelectorModal(); switchTab('my_exams');" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow cursor-pointer transition">
+          Open My Exams Hub <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    <!-- ================= TAB 1: DASHBOARD ================= -->
+    <div id="tab-dashboard" class="tab-content">
+      
+      <!-- HERO SECTION -->
+      <section class="relative pt-6 sm:pt-8 pb-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-indigo-500/10 dark:bg-indigo-600/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute top-12 right-0 w-96 h-96 rounded-full bg-teal-500/10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch relative z-10">
+          
+          <div class="lg:col-span-7 flex flex-col justify-between bg-white dark:bg-[#131b2e]/90 border border-indigo-100 dark:border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-xl shadow-indigo-950/5">
+            <div>
+              <div class="inline-flex items-center gap-2 bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200/80 dark:border-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-[11px] font-extrabold px-3.5 py-1.5 rounded-full mb-5">
+                <i class="fa-solid fa-bolt text-amber-500"></i>
+                <span data-i18n="heroBadge">INDIA'S SMARTEST ADAPTIVE EXAM ENGINE 2026</span>
+              </div>
+
+              <h1 class="text-2xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight leading-[1.18] text-slate-900 dark:text-white mb-4">
+                <span data-i18n="heroTitlePre">Crack Government Exams with</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-teal-500 to-emerald-500 dark:from-indigo-400 dark:via-teal-400 dark:to-emerald-400" data-i18n="heroTitleHighlight">Calm Precision & Speed</span>
+              </h1>
+
+              <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-2xl" data-i18n="heroDesc">
+                Real TCS CBT pattern Subject-wise Practice, Full Length Proctored Mocks, Official Shift-wise PYQ Papers, and Daily Current Affairs — all in one ultra-fast dashboard.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-6">
+                <button onclick="switchTab('practice')" class="glow-card text-left p-4 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-indigo-50/40 dark:from-indigo-600/15 dark:via-indigo-500/5 dark:to-transparent border border-indigo-200/80 dark:border-indigo-500/30 hover:border-indigo-500 group cursor-pointer shadow-sm">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-base shadow-md shadow-indigo-600/30 mb-3 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-bullseye"></i>
+                  </div>
+                  <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white" data-i18n="qaQuizTitle">Start Daily Quiz</h3>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="qaQuizSub">30s Timer • Instant Solution</p>
+                </button>
+
+                <button onclick="switchTab('vault')" class="glow-card text-left p-4 rounded-2xl bg-gradient-to-br from-teal-50 via-white to-teal-50/40 dark:from-teal-600/15 dark:via-teal-500/5 dark:to-transparent border border-teal-200/80 dark:border-teal-500/30 hover:border-teal-500 group cursor-pointer shadow-sm">
+                  <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center text-base shadow-md shadow-teal-600/30 mb-3 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white" data-i18n="qaMockTitle">Full Mock Test</h3>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="qaMockSub">Proctored TCS Pattern</p>
+                </button>
+
+                <button onclick="switchTab('pyq')" class="glow-card text-left p-4 rounded-2xl bg-gradient-to-br from-amber-50 via-white to-amber-50/40 dark:from-amber-500/15 dark:via-amber-500/5 dark:to-transparent border border-amber-200/80 dark:border-amber-500/30 hover:border-amber-500 group cursor-pointer shadow-sm">
+                  <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center text-base shadow-md shadow-amber-500/30 mb-3 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-file-signature"></i>
+                  </div>
+                  <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white" data-i18n="qaPyqTitle">Solve PYQ Papers</h3>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="qaPyqSub">Shift-wise Official Sets</p>
+                </button>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-indigo-50/70 dark:bg-[#0b0f19]/90 border border-indigo-100 dark:border-slate-800 flex flex-col gap-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-xl bg-indigo-600/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-thumbtack text-xs"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-extrabold text-slate-900 dark:text-white" data-i18n="pinnedTitle">Your Added Target Exams</h4>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400" data-i18n="pinnedSub">Click any added exam below to open its PYQs & Mocks directly</p>
+                  </div>
+                </div>
+                <button onclick="openExamSelectorModal()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-[11px] px-3.5 py-2 rounded-xl shadow transition cursor-pointer flex items-center gap-1.5">
+                  <i class="fa-solid fa-plus"></i> <span data-i18n="addManageExamBtn">Add / Manage Exam</span>
+                </button>
+              </div>
+              <div id="dashboard-pinned-exams-chips" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-white dark:bg-[#131b2e] border border-indigo-200/80 dark:border-indigo-500/30 rounded-3xl p-6 shadow-xl shadow-indigo-950/5 flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-teal-500 animate-ping"></span>
+                  <h3 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-900 dark:text-white" data-i18n="todayChallengeTitle">Today's Target Challenge</h3>
+                </div>
+                <div class="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-[11px] font-extrabold px-3 py-1 rounded-full">
+                  <i class="fa-solid fa-fire animate-bounce"></i> <span id="streak-count-label">3 Days Streak</span>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-indigo-50/55 dark:bg-[#0b0f19] border border-indigo-100 dark:border-slate-800/90 mb-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded bg-indigo-600/10 text-indigo-700 dark:text-indigo-400" data-i18n="qodBadge">Question of the Day • 15 Oct CA</span>
+                  <span class="text-[10px] text-slate-500 dark:text-slate-400 font-semibold" data-i18n="tapToAns">Tap an option</span>
+                </div>
+                <p id="qod-question-en" class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                  According to the IMF's October 2026 World Economic Outlook, what is India's projected GDP growth rate for FY 2026-27?
+                </p>
+                <p id="qod-question-hi" class="hidden text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                  IMF के अक्टूबर 2026 World Economic Outlook के अनुसार, वित्त वर्ष 2026-27 के लिए भारत की अनुमानित GDP वृद्धि दर क्या है?
+                </p>
+
+                <div id="qod-options-box" class="grid grid-cols-2 gap-2">
+                  <button onclick="answerQOD(0)" class="qod-opt-btn text-left text-xs font-bold p-2.5 rounded-xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition cursor-pointer shadow-sm">A. 6.4%</button>
+                  <button onclick="answerQOD(1)" class="qod-opt-btn text-left text-xs font-bold p-2.5 rounded-xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition cursor-pointer shadow-sm">B. 6.7%</button>
+                  <button onclick="answerQOD(2)" class="qod-opt-btn text-left text-xs font-bold p-2.5 rounded-xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition cursor-pointer shadow-sm">C. 7.0%</button>
+                  <button onclick="answerQOD(3)" class="qod-opt-btn text-left text-xs font-bold p-2.5 rounded-xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition cursor-pointer shadow-sm">D. 7.5%</button>
+                </div>
+
+                <div id="qod-feedback" class="hidden mt-3 p-3 rounded-xl text-[11px] leading-relaxed"></div>
+              </div>
+
+              <div class="mb-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">
+                  <span><i class="fa-solid fa-bolt text-teal-600 dark:text-teal-400 mr-1"></i> <span data-i18n="topHeadlines">Top Headlines Today</span></span>
+                  <span id="ca-widget-date-badge" class="text-teal-700 dark:text-teal-400 font-extrabold">15 Oct 2026</span>
+                </div>
+                <div id="dashboard-ca-points-preview" class="space-y-1.5 text-xs text-slate-700 dark:text-slate-300"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5 pt-2">
+              <button onclick="openCurrentAffairsModal('daily')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 px-3 rounded-xl shadow transition cursor-pointer flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-day"></i> <span data-i18n="dailyCaBtn">Daily CA & Quiz</span>
+              </button>
+              <button onclick="openCurrentAffairsModal('monthly')" class="bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs py-2.5 px-3 rounded-xl shadow transition cursor-pointer flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-days"></i> <span data-i18n="monthlyCaBtn">Monthly CA Vault</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EXAM CATALOG CHIPS BAR -->
+      <section class="py-3 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <i class="fa-solid fa-compass text-indigo-500"></i> <span data-i18n="catalogHeading">All Exams Catalog (Click + to Add to Your Hub)</span>
+            </h2>
+            <button onclick="openExamSelectorModal()" class="text-[11px] text-indigo-600 dark:text-indigo-400 font-extrabold hover:underline cursor-pointer">
+              <i class="fa-solid fa-sliders mr-1"></i> <span data-i18n="customizeExamsBtn">Customize My Exams</span>
+            </button>
+          </div>
+
+          <div id="quick-exam-chips-bar" class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2"></div>
+        </div>
+      </section>
+
+      <!-- 4 BENTO GRID FEATURE CARDS -->
+      <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-500 border border-indigo-500/20">All-In-One Preparation Ecosystem</span>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-2" data-i18n="pillarsHeading">4 Core Preparation Pillars</h2>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="pillarsSub">Click any card below to launch your practice or mock session</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Bento Card 1 -->
+            <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-500 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <span class="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">6 Core Streams</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5" data-i18n="bento1Title">📚 Subject-wise Practice Hub</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed" data-i18n="bento1Desc">
+                  Chapter-wise adaptive practice with 30-second timer per question and instant bilingual explanations.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <button onclick="openSubjectDirect('mathematics')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">📐 Maths</button>
+                  <button onclick="openSubjectDirect('reasoning')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">🧠 Reasoning</button>
+                  <button onclick="openSubjectDirect('science')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">🔬 Science</button>
+                  <button onclick="openSubjectDirect('social_science')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">🌍 GK / GS</button>
+                  <button onclick="openSubjectDirect('english')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">🔤 English</button>
+                  <button onclick="openSubjectDirect('computer')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-[#0b0f19] hover:bg-indigo-600 hover:text-white transition cursor-pointer">💻 Computer</button>
+                </div>
+              </div>
+              <button onclick="switchTab('practice')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-3 rounded-xl shadow transition cursor-pointer">
+                <span data-i18n="bento1Btn">Open Subject Practice Hub</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Bento Card 2: Mock Vault with Exam + Subject Mocks -->
+            <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-2xl bg-teal-500/15 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-trophy"></i>
+                  </div>
+                  <span class="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">Exam + Subject Mocks</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5" data-i18n="bento2Title">🏆 Full & Subject-wise Mock Vault</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed" data-i18n="bento2Desc">
+                  Attempt full-length exam mocks as well as Subject-wise Mocks (Maths, Reasoning, Science, English, GK).
+                </p>
+                <div class="grid grid-cols-2 gap-2.5 mb-6 text-xs">
+                  <div onclick="openVaultWithMode('exams')" class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 hover:border-teal-500 cursor-pointer transition">
+                    <p class="font-bold text-slate-900 dark:text-white"><i class="fa-solid fa-graduation-cap text-indigo-500 mr-1"></i> Exam-wise Mocks</p>
+                    <p class="text-[10px] text-teal-600 dark:text-teal-400 mt-0.5">SSC • RRB • Banking • State</p>
+                  </div>
+                  <div onclick="openVaultWithMode('subjects')" class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 cursor-pointer transition">
+                    <p class="font-bold text-slate-900 dark:text-white"><i class="fa-solid fa-layer-group text-teal-500 mr-1"></i> Subject-wise Mocks</p>
+                    <p class="text-[10px] text-indigo-600 dark:text-indigo-400 mt-0.5">Maths • Reasoning • GK • Eng</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2.5">
+                <button onclick="openVaultWithMode('exams')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs py-3 rounded-xl shadow transition cursor-pointer">
+                  Exam Mocks <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+                <button onclick="openVaultWithMode('subjects')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-3 rounded-xl shadow transition cursor-pointer">
+                  Subject Mocks <i class="fa-solid fa-bolt ml-1"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Bento Card 3: PYQ Bank -->
+            <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-folder-tree"></i>
+                  </div>
+                  <span class="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Year & Shift Wise</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5" data-i18n="bento3Title">🗂️ Official PYQ Bank</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed" data-i18n="bento3Desc">
+                  Solve authentic previous year question papers organized by Exam, Stage, Year, and Shift.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 text-[11px] font-semibold">
+                  <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">SSC 2019–2025</span>
+                  <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">Railway CBT-1 & 2</span>
+                  <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">BSSC & State PYQs</span>
+                </div>
+              </div>
+              <button onclick="switchTab('pyq')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs py-3 rounded-xl shadow transition cursor-pointer">
+                <span data-i18n="bento3Btn">Solve Official PYQ Papers</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Bento Card 4: Current Affairs & PDF Corner -->
+            <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-2xl bg-rose-500/15 text-rose-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-newspaper"></i>
+                  </div>
+                  <span class="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Daily + Monthly</span>
+                </div>
+                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5" data-i18n="bento4Title">📰 Current Affairs & Revision Hub</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-5 leading-relaxed" data-i18n="bento4Desc">
+                  Top 10 daily current affairs headlines followed immediately by 10 MCQs for instant revision.
+                </p>
+                <div class="grid grid-cols-2 gap-2.5 mb-6 text-xs">
+                  <div onclick="openCurrentAffairsModal('daily')" class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 hover:border-rose-500 cursor-pointer transition">
+                    <p class="font-bold text-slate-900 dark:text-white">Daily Bulletin</p>
+                    <p class="text-[10px] text-rose-400 mt-0.5">10 Points + 10 MCQs</p>
+                  </div>
+                  <div onclick="openCurrentAffairsModal('monthly')" class="p-3 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 hover:border-teal-500 cursor-pointer transition">
+                    <p class="font-bold text-slate-900 dark:text-white">Monthly Archive</p>
+                    <p class="text-[10px] text-teal-400 mt-0.5">Jan – Oct 2026 Sets</p>
+                  </div>
+                </div>
+              </div>
+              <button onclick="openCurrentAffairsModal('daily')" class="w-full bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white font-bold text-xs py-3 rounded-xl shadow transition cursor-pointer">
+                <span data-i18n="bento4Btn">Open Current Affairs Hub</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CUSTOM CHAPTER REPOSITORY & REPORTING STRIP -->
+      <section class="py-2 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="bg-white dark:bg-[#131b2e] border border-indigo-200/80 dark:border-slate-800 rounded-3xl p-6 sm:p-7 shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-folder-plus"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white" data-i18n="customRepoTitle">Custom Chapter Repository & Self-Reporting</h3>
+                  <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Personal Vault</span>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="customRepoSub">
+                  Pick weak chapters from any subject (Maths, Reasoning, Science, GK, English, Computer) to build your personal practice & mock list.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-wrap sm:flex-nowrap gap-2.5 w-full lg:w-auto">
+              <button onclick="switchTab('chapters')" class="flex-1 lg:flex-none bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-5 py-3 rounded-xl shadow transition cursor-pointer whitespace-nowrap">
+                <i class="fa-solid fa-plus mr-1"></i> <span data-i18n="addCustomChapBtn">Add Custom Chapter</span>
+              </button>
+              <button onclick="switchTab('analytics')" class="flex-1 lg:flex-none bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-800 dark:text-slate-200 font-bold text-xs px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 transition cursor-pointer whitespace-nowrap">
+                <i class="fa-solid fa-chart-line text-teal-500 mr-1"></i> <span data-i18n="selfReportBtn">Self Telemetry Report</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST & STATS BANNER -->
+      <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto bg-gradient-to-r from-indigo-600 via-indigo-700 to-teal-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">50,000+</p>
+              <p class="text-xs text-indigo-100 mt-1 font-semibold" data-i18n="stat1Title">Bilingual Questions</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">500+</p>
+              <p class="text-xs text-indigo-100 mt-1 font-semibold" data-i18n="stat2Title">Full Length Mocks</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">100%</p>
+              <p class="text-xs text-indigo-100 mt-1 font-semibold" data-i18n="stat3Title">Latest TCS Pattern</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">Daily Free</p>
+              <p class="text-xs text-indigo-100 mt-1 font-semibold" data-i18n="stat4Title">Daily Current Affairs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= TAB: MY ADDED EXAMS HUB ================= -->
+    <div id="tab-my_exams" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Personalized Exam Workspace</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">My Added Target Exams</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Only the exams you added with <strong>+ Add</strong> appear here with direct access to their PYQs, Full Mocks, and Practice Sets.</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="openExamSelectorModal()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-extrabold shadow cursor-pointer">
+            <i class="fa-solid fa-plus mr-1"></i> Add More Exams
+          </button>
+          <button onclick="switchTab('dashboard')" class="px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold cursor-pointer">
+            <i class="fa-solid fa-arrow-left mr-1"></i> Home
+          </button>
+        </div>
+      </div>
+
+      <div id="focused-exam-workspace" class="mb-8"></div>
+      <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">All Your Added Exams</h3>
+      <div id="my-added-exams-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+
+    <!-- ================= TAB: PRACTICE HUB ================= -->
+    <div id="tab-practice" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-teal-500/10 text-teal-600 dark:text-teal-400">Chapter-wise Adaptive Drills</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Subject Practice Hub</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Select any subject stream below to start chapter-wise practice.</p>
+        </div>
+        <button onclick="switchTab('dashboard')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold cursor-pointer self-start sm:self-auto">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Back to Home
+        </button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-6">
+        <button onclick="renderDemoSubject('mathematics')" id="psubj-mathematics" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white cursor-pointer">📐 Mathematics</button>
+        <button onclick="renderDemoSubject('reasoning')" id="psubj-reasoning" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🧠 Reasoning</button>
+        <button onclick="renderDemoSubject('science')" id="psubj-science" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🔬 Science</button>
+        <button onclick="renderDemoSubject('social_science')" id="psubj-social_science" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🌍 GK / Social Science</button>
+        <button onclick="renderDemoSubject('english')" id="psubj-english" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🔤 English</button>
+        <button onclick="renderDemoSubject('computer')" id="psubj-computer" class="psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">💻 Computer</button>
+      </div>
+
+      <div id="demo-practice-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+
+    <!-- ================= TAB: MOCK VAULT ================= -->
+    <div id="tab-vault" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Proctored Examination Mode</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Mock Test Vault (Exams & Subject-wise Mocks)</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Choose between Full-Length Exam Mocks or 30-Minute Subject-wise Mocks.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 self-start md:self-auto">
+          <button id="vault-filter-my-btn" onclick="toggleVaultOnlyMyExams()" class="px-3.5 py-2 text-xs font-extrabold rounded-xl bg-teal-500/15 text-teal-700 dark:text-teal-300 border border-teal-500/30 cursor-pointer">
+            <i class="fa-solid fa-filter mr-1"></i> Showing: My Added Exams Only
+          </button>
+          <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-900 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800">
+            <button id="vmode-exams-btn" onclick="switchVaultMode('exams')" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer">
+              <i class="fa-solid fa-graduation-cap mr-1"></i> Exam Mocks
+            </button>
+            <button id="vmode-subjects-btn" onclick="switchVaultMode('subjects')" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer">
+              <i class="fa-solid fa-book-open mr-1"></i> Subject Mocks
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="vault-exams-view" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+
+      <div id="vault-subjects-view" class="hidden space-y-6">
+        <div id="vault-subject-pills" class="flex flex-wrap gap-2">
+          <button onclick="renderVaultSubjectMocks('mathematics')" id="vsubj-mathematics" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white cursor-pointer">📐 Mathematics Mocks</button>
+          <button onclick="renderVaultSubjectMocks('reasoning')" id="vsubj-reasoning" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🧠 Reasoning Mocks</button>
+          <button onclick="renderVaultSubjectMocks('science')" id="vsubj-science" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🔬 Science Mocks</button>
+          <button onclick="renderVaultSubjectMocks('social_science')" id="vsubj-social_science" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🌍 GK / Social Science Mocks</button>
+          <button onclick="renderVaultSubjectMocks('english')" id="vsubj-english" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">🔤 English Mocks</button>
+          <button onclick="renderVaultSubjectMocks('computer')" id="vsubj-computer" class="vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer">💻 Computer Mocks</button>
+        </div>
+        <div id="vault-subject-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+      </div>
+    </div>
+
+    <!-- ================= TAB: CUSTOM CHAPTERS ================= -->
+    <div id="tab-chapters" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Personal Revision Vault</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Custom Chapter Manager</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Save your weak or favorite chapters here and launch Practice or Subject Mocks anytime.</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="switchTab('dashboard')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold cursor-pointer"><i class="fa-solid fa-arrow-left mr-1"></i> Home</button>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-5 rounded-2xl mb-6 shadow-sm">
+        <h3 class="text-xs font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3"><i class="fa-solid fa-plus-circle mr-1"></i> Add Chapter to Your Personal Repository</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <select id="custom-subj-select" onchange="populateCustomChapterSelect()" class="px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200">
+            <option value="Mathematics">📐 Mathematics</option>
+            <option value="Reasoning">🧠 Reasoning</option>
+            <option value="Science">🔬 Science</option>
+            <option value="GK & Social Science">🌍 GK & Social Science</option>
+            <option value="English">🔤 English</option>
+            <option value="Computer">💻 Computer</option>
+          </select>
+          <select id="custom-chap-select" class="px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200"></select>
+          <button onclick="addNewCustomChapter()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow cursor-pointer transition">
+            <i class="fa-solid fa-bookmark mr-1"></i> Save to My Chapters
+          </button>
+        </div>
+      </div>
+
+      <div id="custom-chapters-list-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    </div>
+
+    <!-- ================= TAB: PYQ HUB ================= -->
+    <div id="tab-pyq" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400">Official Shift-wise Archive</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Previous Year Question (PYQ) Bank</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Showing shift-wise PYQ papers for your added Target Exams.</p>
+        </div>
+        <div class="flex flex-wrap gap-2 self-start sm:self-auto">
+          <button id="pyq-filter-my-btn" onclick="togglePyqOnlyMyExams()" class="px-3.5 py-2 rounded-xl bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-extrabold cursor-pointer">
+            <i class="fa-solid fa-filter mr-1"></i> Showing: My Added Exams
+          </button>
+          <button onclick="openExamSelectorModal()" class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold cursor-pointer">
+            <i class="fa-solid fa-plus mr-1"></i> Add Exam
+          </button>
+        </div>
+      </div>
+      <div id="pyq-dynamic-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+
+    <!-- ================= TAB: TELEMETRY / ANALYTICS ================= -->
+    <div id="tab-analytics" class="tab-content hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400">Real-Time Performance & Self Report</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Telemetry & Completed Tests History</h2>
+        </div>
+        <button onclick="switchTab('dashboard')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold cursor-pointer"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Home</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+          <p class="text-xs text-slate-500 dark:text-slate-400">Average Response Speed</p>
+          <p class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">24.8 sec / Q</p>
+        </div>
+        <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+          <p class="text-xs text-slate-500 dark:text-slate-400">Overall Accuracy Index</p>
+          <p class="text-2xl font-extrabold text-teal-600 dark:text-teal-400 mt-1">92.4%</p>
+        </div>
+        <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+          <p class="text-xs text-slate-500 dark:text-slate-400">Daily Active Streak</p>
+          <p class="text-2xl font-extrabold text-amber-500 mt-1">🔥 3 Days</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+        <h3 class="text-sm font-extrabold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-rectangle-list text-indigo-500"></i> Completed Tests & Subject Mock Report
+        </h3>
+        <div class="space-y-2.5 text-xs">
+          <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800">
+            <div>
+              <span class="font-extrabold text-indigo-600 dark:text-indigo-400 uppercase">[Subject Mock]</span>
+              <span class="font-bold text-slate-900 dark:text-white ml-2">Percentage (प्रतिशत) - Mock Exam</span>
+              <span class="block text-[10px] text-slate-400 mt-0.5">Mathematics • 15 Oct 2026</span>
+            </div>
+            <span class="font-extrabold text-teal-600 dark:text-teal-400">Score: 46 / 50</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CURRENT AFFAIRS MODAL -->
+  <div id="current-affairs-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-[#131b2e] w-full max-w-2xl rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col max-h-[88vh]">
+      <div class="flex justify-between items-center pb-3 mb-3 border-b border-slate-200 dark:border-slate-800">
+        <h3 id="modal-ca-heading" class="text-base font-extrabold flex items-center gap-2 text-slate-900 dark:text-white">
+          <i class="fa-solid fa-newspaper text-indigo-500"></i> Daily Current Affairs & Quiz
+        </h3>
+        <button onclick="closeCurrentAffairsModal()" class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl mb-4">
+        <button id="ca-modal-daily-btn" onclick="switchCurrentAffairsMode('daily')" class="flex-1 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white cursor-pointer">Daily Current Affairs</button>
+        <button id="ca-modal-monthly-btn" onclick="switchCurrentAffairsMode('monthly')" class="flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 cursor-pointer">Monthly Archive</button>
+      </div>
+
+      <div class="flex-grow overflow-y-auto space-y-4 pr-1 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-2xl border border-slate-200 dark:border-slate-800">
+          <span id="modal-ca-date" class="text-[10px] font-bold bg-indigo-500/15 text-indigo-400 px-2.5 py-1 rounded">15 October 2026</span>
+          <h4 id="modal-ca-title" class="font-extrabold text-slate-900 dark:text-white mt-2 mb-2">Daily Current Affairs Bulletin</h4>
+          <ul id="modal-ca-points-list" class="space-y-2.5 pl-4 list-disc text-slate-700 dark:text-slate-300 leading-relaxed"></ul>
+        </div>
+
+        <div class="p-4 bg-slate-50 dark:bg-[#0b0f19] rounded-2xl border border-slate-200 dark:border-slate-800">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[10px] font-bold bg-teal-500/15 text-teal-600 dark:text-teal-400 px-2.5 py-1 rounded">CA Practice Quiz</span>
+            <span class="text-[10px] font-bold text-indigo-500"><i class="fa-solid fa-language mr-1"></i>Bilingual Question View (EN + हिंदी)</span>
+          </div>
+          <div id="modal-ca-quiz-container" class="space-y-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 z-40 px-2 py-1.5 flex items-center justify-around shadow-2xl">
+    <button onclick="switchTab('dashboard')" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-indigo-600 dark:text-indigo-400 font-bold text-[10px] cursor-pointer" data-tab="dashboard">
+      <i class="fa-solid fa-house text-sm mb-0.5"></i>
+      <span>Home</span>
+    </button>
+    <button onclick="switchTab('my_exams')" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-slate-500 dark:text-slate-400 font-semibold text-[10px] cursor-pointer" data-tab="my_exams">
+      <i class="fa-solid fa-thumbtack text-sm mb-0.5"></i>
+      <span>My Exams</span>
+    </button>
+    <button onclick="switchTab('practice')" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-slate-500 dark:text-slate-400 font-semibold text-[10px] cursor-pointer" data-tab="practice">
+      <i class="fa-solid fa-book-open text-sm mb-0.5"></i>
+      <span>Practice</span>
+    </button>
+    <button onclick="switchTab('vault')" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-slate-500 dark:text-slate-400 font-semibold text-[10px] cursor-pointer" data-tab="vault">
+      <i class="fa-solid fa-shield-halved text-sm mb-0.5"></i>
+      <span>Mocks</span>
+    </button>
+    <button onclick="toggleMobileDrawer()" class="flex flex-col items-center justify-center py-1 px-3 rounded-xl text-indigo-600 dark:text-indigo-400 font-extrabold text-[10px] cursor-pointer">
+      <i class="fa-solid fa-grip text-sm mb-0.5"></i>
+      <span>More ▲</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-20 md:bottom-6 right-6 bg-white dark:bg-[#131b2e] border border-indigo-500/40 text-slate-900 dark:text-slate-200 px-4 py-3 rounded-2xl shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+    <i class="fa-solid fa-circle-check text-teal-400 text-sm"></i>
+    <span id="toast-message" class="text-xs font-bold">Updated!</span>
+  </div>
+
+  <footer class="bg-slate-900 dark:bg-[#0b0f19] text-slate-400 border-t border-slate-800/80 py-6 px-4 sm:px-8 mt-auto text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-semibold text-slate-300">&copy; 2026 <strong>TargetTire</strong>. All Rights Reserved. Designed for Competitive Aspirants.</p>
+      <p class="text-[11px] text-slate-400">🔒 100% Secure &bull; ⚡ Adaptive Testing Engine</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentAppLang = 'en';
+
+    const uiTranslations = {
+      en: {
+        liveUpdates: "LIVE UPDATES",
+        headerSub: "Precision Intelligence",
+        examsBtn: "My Exams",
+        selectExamCat: "Click (+) to Add Your Exam",
+        searchPlaceholder: "Search Exams, PYQ...",
+        navHome: "Home",
+        navPractice: "Practice",
+        navMocks: "Mocks",
+        navPYQ: "PYQ Hub",
+        profileBtn: "Profile",
+        quickShortcutsLabel: "Quick App Shortcuts",
+        addExamModalTitle: "Add Your Target Exams",
+        addExamModalSub: "Click (+ Add) next to only the exams you are preparing for so their PYQs and Mocks appear directly in your hub.",
+        heroBadge: "INDIA'S SMARTEST ADAPTIVE EXAM ENGINE 2026",
+        heroTitlePre: "Crack Government Exams with",
+        heroTitleHighlight: "Calm Precision & Speed",
+        heroDesc: "Real TCS CBT pattern Subject-wise Practice, Full Length Proctored Mocks, Official Shift-wise PYQ Papers, and Daily Current Affairs — all in one ultra-fast dashboard.",
+        qaQuizTitle: "Start Daily Quiz",
+        qaQuizSub: "30s Timer • Instant Solution",
+        qaMockTitle: "Full Mock Test",
+        qaMockSub: "Proctored TCS Pattern",
+        qaPyqTitle: "Solve PYQ Papers",
+        qaPyqSub: "Shift-wise Official Sets",
+        pinnedTitle: "Your Added Target Exams",
+        pinnedSub: "Click any added exam below to open its PYQs & Mocks directly",
+        addManageExamBtn: "Add / Manage Exam",
+        todayChallengeTitle: "Today's Target Challenge",
+        qodBadge: "Question of the Day • 15 Oct CA",
+        tapToAns: "Tap an option",
+        topHeadlines: "Top Headlines Today",
+        dailyCaBtn: "Daily CA & Quiz",
+        monthlyCaBtn: "Monthly CA Vault",
+        catalogHeading: "All Exams Catalog (Click + to Add to Your Hub)",
+        customizeExamsBtn: "Customize My Exams",
+        pillarsHeading: "4 Core Preparation Pillars",
+        pillarsSub: "Click any card below to launch your practice or mock session",
+        bento1Title: "📚 Subject-wise Practice Hub",
+        bento1Desc: "Chapter-wise adaptive practice with 30-second timer per question and instant bilingual explanations.",
+        bento1Btn: "Open Subject Practice Hub",
+        bento2Title: "🏆 Full & Subject-wise Mock Vault",
+        bento2Desc: "Attempt full-length exam mocks as well as Subject-wise Mocks (Maths, Reasoning, Science, English, GK).",
+        bento3Title: "🗂️ Official PYQ Bank",
+        bento3Desc: "Solve authentic previous year question papers organized by Exam, Stage, Year, and Shift.",
+        bento3Btn: "Solve Official PYQ Papers",
+        bento4Title: "📰 Current Affairs & Revision Hub",
+        bento4Desc: "Top 10 daily current affairs headlines followed immediately by 10 MCQs for instant revision.",
+        bento4Btn: "Open Current Affairs Hub",
+        customRepoTitle: "Custom Chapter Repository & Self-Reporting",
+        customRepoSub: "Pick weak chapters from any subject (Maths, Reasoning, Science, GK, English, Computer) to build your personal practice & mock list.",
+        addCustomChapBtn: "Add Custom Chapter",
+        selfReportBtn: "Self Telemetry Report",
+        stat1Title: "Bilingual Questions",
+        stat2Title: "Full Length Mocks",
+        stat3Title: "Latest TCS Pattern",
+        stat4Title: "Daily Current Affairs"
+      },
+      hi: {
+        liveUpdates: "लाइव अपडेट्स",
+        headerSub: "सटीक परीक्षा बुद्धिमत्ता",
+        examsBtn: "मेरे एग्जाम",
+        selectExamCat: "अपना एग्जाम जोड़ने के लिए (+) दबाएं",
+        searchPlaceholder: "एग्जाम, PYQ खोजें...",
+        navHome: "होम",
+        navPractice: "प्रैक्टिस",
+        navMocks: "मॉक टेस्ट",
+        navPYQ: "PYQ हब",
+        profileBtn: "प्रोफाइल",
+        quickShortcutsLabel: "मुख्य ऐप शॉर्टकट्स",
+        addExamModalTitle: "अपने टारगेट एग्जाम जोड़ें",
+        addExamModalSub: "सारे एग्जाम जोड़ना जरूरी नहीं है — सिर्फ अपने टारगेट एग्जाम के आगे (+ Add) पर क्लिक करें ताकि आपको सीधे उसी का PYQ और Mock दिखे।",
+        heroBadge: "भारत का सबसे स्मार्ट एग्जाम प्लेटफॉर्म 2026",
+        heroTitlePre: "शांत सटीकता और तेज़ गति के साथ",
+        heroTitleHighlight: "सरकारी परीक्षाएं क्रैक करें",
+        heroDesc: "असली TCS CBT पैटर्न पर आधारित चैप्टर-वाइज प्रैक्टिस, फुल लेंथ मॉक टेस्ट, ऑफिशियल प्रीवियस ईयर पेपर्स (PYQ) और डेली करंट अफेयर्स — सब कुछ एक ही जगह।",
+        qaQuizTitle: "डेली क्विज़ शुरू करें",
+        qaQuizSub: "30s टाइमर • तुरंत हल",
+        qaMockTitle: "फुल मॉक टेस्ट दें",
+        qaMockSub: "असली TCS CBT पैटर्न",
+        qaPyqTitle: "पुराने पेपर्स (PYQ)",
+        qaPyqSub: "शिफ्ट-वाइज ऑफिशियल सेट्स",
+        pinnedTitle: "आपके जोड़े गए टारगेट एग्जाम",
+        pinnedSub: "किसी भी एग्जाम पर क्लिक करके सीधे उसका PYQ और Mock खोलें",
+        addManageExamBtn: "एग्जाम जोड़ें / बदलें",
+        todayChallengeTitle: "आज का टारगेट चैलेंज",
+        qodBadge: "आज का सवाल • 15 अक्टूबर करंट अफेयर्स",
+        tapToAns: "विकल्प चुनें",
+        topHeadlines: "आज की प्रमुख सुर्खियाँ",
+        dailyCaBtn: "डेली करंट अफेयर्स",
+        monthlyCaBtn: "मंथली करंट अफेयर्स",
+        catalogHeading: "सभी परीक्षाएं (+ दबाकर अपने डैशबोर्ड में जोड़ें)",
+        customizeExamsBtn: "मेरे एग्जाम कस्टमाइज़ करें",
+        pillarsHeading: "तैयारी के 4 मुख्य स्तंभ",
+        pillarsSub: "किसी भी कार्ड पर क्लिक करें और तुरंत अपनी प्रैक्टिस शुरू करें",
+        bento1Title: "📚 सब्जेक्ट-वाइज प्रैक्टिस हब",
+        bento1Desc: "चैप्टर-वाइज प्रैक्टिस करें हर सवाल के लिए 30 सेकंड टाइमर और तुरंत हिंदी + English एक्सप्लेनेशन के साथ।",
+        bento1Btn: "सब्जेक्ट प्रैक्टिस हब खोलें",
+        bento2Title: "🏆 फुल एवं सब्जेक्ट-वाइज मॉक वॉल्ट",
+        bento2Desc: "फुल-लेंथ एग्जाम मॉक टेस्ट के साथ-साथ किसी भी एक विषय (Maths, Reasoning, Science, GK, English) का मॉक टेस्ट दें।",
+        bento3Title: "🗂️ ऑफिशियल PYQ बैंक",
+        bento3Desc: "साल, स्टेज और शिफ्ट के हिसाब से व्यवस्थित असली प्रीवियस ईयर पेपर्स (Exam → Stage → Year → Shift) हल करें।",
+        bento3Btn: "ऑफिशियल PYQ पेपर्स हल करें",
+        bento4Title: "📰 करंट अफेयर्स और रिवीजन हब",
+        bento4Desc: "रोज़ाना के 10 सबसे महत्वपूर्ण करंट अफेयर्स पॉइंट्स और उनके नीचे तुरंत प्रैक्टिस के लिए 10 MCQs।",
+        bento4Btn: "करंट अफेयर्स हब खोलें",
+        customRepoTitle: "कस्टम चैप्टर रिपॉजिटरी और सेल्फ-रिपोर्टिंग",
+        customRepoSub: "किसी भी विषय से अपने कमजोर चैप्टर्स चुनकर अपनी पर्सनल प्रैक्टिस और सब्जेक्ट मॉक लिस्ट बनाएं।",
+        addCustomChapBtn: "कस्टम चैप्टर जोड़ें",
+        selfReportBtn: "सेल्फ टेलीमेट्री रिपोर्ट",
+        stat1Title: "द्विभाषी प्रश्न (EN + हिंदी)",
+        stat2Title: "फुल लेंथ मॉक टेस्ट",
+        stat3Title: "100% नया TCS पैटर्न",
+        stat4Title: "फ्री डेली करंट अफेयर्स"
+      }
+    };
+
+    window.TARGETTIRE_CA_DATABASE = window.TARGETTIRE_CA_DATABASE || {
+      date: "15 October 2026",
+      bulletinTitle: "Daily Current Affairs — 15 October 2026",
+      points: [
+        "1. The International Monetary Fund (IMF) in its October 2026 World Economic Outlook raised India's GDP growth forecast by 60 basis points to 7.0% for FY 2026-27. / अंतर्राष्ट्रीय मुद्रा कोष (IMF) ने वित्त वर्ष 2026-27 के लिए भारत की GDP वृद्धि दर का अनुमान बढ़ाकर 7.0% कर दिया है।",
+        "2. UNCTAD released the 'Trade and Development Report 2026', projecting India to grow at 7.3% as the world's fastest-growing large economy. / UNCTAD ने भारत को 7.3% की वृद्धि दर के साथ दुनिया की सबसे तेजी से बढ़ती बड़ी अर्थव्यवस्था रहने का अनुमान लगाया है।"
+      ],
+      quizList: [
+        {
+          qEn: "1. According to the IMF's October 2026 World Economic Outlook, what is India's projected GDP growth rate for FY 2026-27?",
+          qHi: "1. IMF के अक्टूबर 2026 World Economic Outlook के अनुसार, वित्त वर्ष 2026-27 के लिए भारत की अनुमानित GDP वृद्धि दर क्या है?",
+          optionsEn: ["6.4%", "6.7%", "7.0%", "7.5%"],
+          optionsHi: ["6.4%", "6.7%", "7.0%", "7.5%"],
+          answer: 2,
+          expEn: "The IMF raised India's GDP growth forecast by 60 basis points to 7.0% for FY 2026-27.",
+          expHi: "IMF ने वित्त वर्ष 2026-27 के लिए भारत की GDP वृद्धि का अनुमान 60 आधार अंक बढ़ाकर 7.0% कर दिया है।"
+        }
+      ]
+    };
+
+    function answerQOD(selectedIdx) {
+      const correctIdx = 2;
+      const buttons = document.querySelectorAll('.qod-opt-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.remove('border-teal-500', 'bg-teal-500/15', 'border-rose-500', 'bg-rose-500/15', 'text-teal-700', 'dark:text-teal-300', 'text-rose-700', 'dark:text-rose-300');
+        if (i === correctIdx) {
+          btn.classList.add('border-teal-500', 'bg-teal-500/15', 'text-teal-700', 'dark:text-teal-300');
+        } else if (i === selectedIdx) {
+          btn.classList.add('border-rose-500', 'bg-rose-500/15', 'text-rose-700', 'dark:text-rose-300');
+        }
+      });
+
+      const fb = document.getElementById('qod-feedback');
+      fb.classList.remove('hidden');
+      if (selectedIdx === correctIdx) {
+        fb.className = "mt-3 p-3 rounded-xl text-[11px] leading-relaxed bg-teal-500/15 border border-teal-500/30 text-teal-800 dark:text-teal-300 font-semibold";
+        fb.innerHTML = currentAppLang === 'hi'
+          ? `<strong>✓ बिल्कुल सही उत्तर! (7.0%)</strong><br>IMF ने अक्टूबर 2026 में भारत की FY27 GDP ग्रोथ का अनुमान बढ़ाकर 7.0% किया है। आपकी स्ट्रीक बढ़कर 🔥 <strong>4 Days</strong> हो गई!`
+          : `<strong>✓ Correct Answer! (7.0%)</strong><br>The IMF raised India's FY27 GDP growth forecast to 7.0%. Active streak is now 🔥 <strong>4 Days Streak</strong>!`;
+        document.getElementById('streak-count-label').innerText = "4 Days Streak";
+      } else {
+        fb.className = "mt-3 p-3 rounded-xl text-[11px] leading-relaxed bg-rose-500/15 border border-rose-500/30 text-rose-800 dark:text-rose-300 font-semibold";
+        fb.innerHTML = currentAppLang === 'hi'
+          ? `<strong>✗ गलत उत्तर! सही विकल्प C (7.0%) है।</strong>`
+          : `<strong>✗ Incorrect! Correct option is C (7.0%).</strong>`;
+      }
+    }
+
+    function loadCurrentAffairsWidget() {
+      const ca = window.TARGETTIRE_CA_DATABASE;
+      if (!ca) return;
+
+      const badge = document.getElementById('ca-widget-date-badge');
+      if (badge && ca.date) badge.innerText = ca.date;
+
+      const qodEn = document.getElementById('qod-question-en');
+      const qodHi = document.getElementById('qod-question-hi');
+      if (qodEn && qodHi) {
+        qodEn.classList.toggle('hidden', currentAppLang === 'hi');
+        qodHi.classList.toggle('hidden', currentAppLang !== 'hi');
+      }
+
+      const preview = document.getElementById('dashboard-ca-points-preview');
+      if (preview && Array.isArray(ca.points)) {
+        preview.innerHTML = ca.points.slice(0, 2).map(pt => {
+          const parts = pt.split('/');
+          const enPart = (parts[0] || '').trim();
+          const hiPart = (parts[1] || parts[0] || '').trim();
+          const chosenText = currentAppLang === 'hi' ? hiPart : enPart;
+          return `<p class="truncate font-medium text-slate-700 dark:text-slate-300">• ${chosenText}</p>`;
+        }).join('');
+      }
+
+      document.getElementById('modal-ca-date').innerText = ca.date || "Today";
+      document.getElementById('modal-ca-title').innerText = ca.bulletinTitle || "Daily Current Affairs";
+
+      const listEl = document.getElementById('modal-ca-points-list');
+      if (listEl && Array.isArray(ca.points)) {
+        listEl.innerHTML = ca.points.map(p => {
+          const parts = p.split('/');
+          if (currentAppLang === 'hi') return `<li>${(parts[1] || parts[0] || '').trim()}</li>`;
+          return `<li>${(parts[0] || '').trim()}</li>`;
+        }).join('');
+      }
+
+      const quizBox = document.getElementById('modal-ca-quiz-container');
+      if (quizBox && Array.isArray(ca.quizList)) {
+        quizBox.innerHTML = ca.quizList.map((q, qIdx) => {
+          const optsEn = q.optionsEn || [];
+          const optsHi = q.optionsHi || [];
+          const qText = `${q.qEn}<br><span class="text-indigo-600 dark:text-indigo-400 font-normal text-xs">(${q.qHi})</span>`;
+
+          const optionsHtml = optsEn.map((optEn, optIdx) => {
+            const optHi = optsHi[optIdx] || optEn;
+            const optLabel = `${optEn} <span class="text-slate-400 font-normal">/ ${optHi}</span>`;
+            return `
+              <button type="button" onclick="checkModalCAQuiz(${qIdx}, ${optIdx})" class="w-full text-left p-2.5 rounded-xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 text-xs font-semibold transition cursor-pointer">
+                ${optLabel}
+              </button>
+            `;
+          }).join('');
+
+          return `
+            <div class="p-3.5 rounded-2xl bg-slate-100/70 dark:bg-[#131b2e]/60 border border-slate-200 dark:border-slate-800">
+              <p class="font-bold text-slate-900 dark:text-white text-xs sm:text-sm mb-2.5">${qText}</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">${optionsHtml}</div>
+              <div id="modal-ca-ans-${qIdx}" class="hidden mt-2.5 p-2.5 rounded-xl text-xs"></div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    function checkModalCAQuiz(qIdx, selectedIdx) {
+      const ca = window.TARGETTIRE_CA_DATABASE;
+      if (!ca || !Array.isArray(ca.quizList) || !ca.quizList[qIdx]) return;
+      const q = ca.quizList[qIdx];
+      const ansBox = document.getElementById('modal-ca-ans-' + qIdx);
+      if (!ansBox) return;
+
+      const expText = `${q.expEn || q.exp || ''}<br><span class="text-indigo-600 dark:text-indigo-300">${q.expHi || ''}</span>`;
+
+      ansBox.classList.remove('hidden');
+      if (selectedIdx === q.answer) {
+        ansBox.className = "mt-2.5 p-2.5 rounded-xl text-xs bg-teal-500/15 border border-teal-500/30 text-teal-800 dark:text-teal-300 font-semibold";
+        ansBox.innerHTML = `<strong>✓ Correct!</strong> ${expText}`;
+      } else {
+        const rightOpt = (q.optionsEn && q.optionsEn[q.answer]) || '';
+        ansBox.className = "mt-2.5 p-2.5 rounded-xl text-xs bg-rose-500/15 border border-rose-500/30 text-rose-800 dark:text-rose-300 font-semibold";
+        ansBox.innerHTML = `<strong>✗ Incorrect (Right: ${rightOpt}).</strong> ${expText}`;
+      }
+    }
+
+    function openCurrentAffairsModal(mode) {
+      const modal = document.getElementById('current-affairs-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      switchCurrentAffairsMode(mode || 'daily');
+    }
+
+    function closeCurrentAffairsModal() {
+      const modal = document.getElementById('current-affairs-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function switchCurrentAffairsMode(mode) {
+      const dailyBtn = document.getElementById('ca-modal-daily-btn');
+      const monthlyBtn = document.getElementById('ca-modal-monthly-btn');
+      const heading = document.getElementById('modal-ca-heading');
+
+      if (mode === 'monthly') {
+        if (monthlyBtn) monthlyBtn.className = "flex-1 py-2 rounded-lg text-xs font-bold bg-teal-600 text-white cursor-pointer";
+        if (dailyBtn) dailyBtn.className = "flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 cursor-pointer";
+        if (heading) heading.innerHTML = `<i class="fa-solid fa-calendar-days text-teal-500"></i> Monthly Current Affairs Archive (Jan – Oct 2026)`;
+        document.getElementById('modal-ca-date').innerText = "October 2026 Monthly Set";
+        document.getElementById('modal-ca-title').innerText = "Top Monthly Current Affairs Compilation";
+      } else {
+        if (dailyBtn) dailyBtn.className = "flex-1 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white cursor-pointer";
+        if (monthlyBtn) monthlyBtn.className = "flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 cursor-pointer";
+        if (heading) heading.innerHTML = `<i class="fa-solid fa-newspaper text-indigo-500"></i> Daily Current Affairs & Quiz`;
+        loadCurrentAffairsWidget();
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.className = "nav-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-white dark:bg-slate-800 shadow-sm transition cursor-pointer";
+        } else {
+          btn.className = "nav-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer";
+        }
+      });
+
+      document.querySelectorAll('.mob-nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.className = "mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-indigo-600 dark:text-indigo-400 font-bold text-[10px] cursor-pointer";
+        } else {
+          btn.className = "mob-nav-btn flex flex-col items-center justify-center py-1 px-3 rounded-xl text-slate-500 dark:text-slate-400 font-semibold text-[10px] cursor-pointer";
+        }
+      });
+
+      if (tabId === 'practice') renderDemoSubject('mathematics');
+      if (tabId === 'chapters') {
+        populateCustomChapterSelect();
+        renderCustomChaptersList();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openVaultWithMode(mode) {
+      switchTab('vault');
+      switchVaultMode(mode);
+    }
+
+    function switchVaultMode(mode) {
+      const examsView = document.getElementById('vault-exams-view');
+      const subjectsView = document.getElementById('vault-subjects-view');
+      const examsBtn = document.getElementById('vmode-exams-btn');
+      const subjectsBtn = document.getElementById('vmode-subjects-btn');
+
+      if (mode === 'subjects') {
+        examsView.classList.add('hidden');
+        subjectsView.classList.remove('hidden');
+        subjectsBtn.className = "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer";
+        examsBtn.className = "px-3.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer";
+        renderVaultSubjectMocks('mathematics');
+      } else {
+        subjectsView.classList.add('hidden');
+        examsView.classList.remove('hidden');
+        examsBtn.className = "px-3.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-600 text-white transition cursor-pointer";
+        subjectsBtn.className = "px-3.5 py-1.5 text-xs font-semibold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition cursor-pointer";
+      }
+    }
+
+    function renderVaultSubjectMocks(subjKey) {
+      document.querySelectorAll('.vsubj-btn').forEach(btn => {
+        btn.className = "vsubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer";
+      });
+      const activeBtn = document.getElementById('vsubj-' + subjKey);
+      if (activeBtn) {
+        activeBtn.className = "vsubj-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white cursor-pointer";
+      }
+
+      const chaptersByStream = {
+        mathematics: ["Percentage (प्रतिशत)", "Profit & Loss (लाभ और हानि)", "Time & Work (समय और कार्य)"],
+        reasoning: ["Coding-Decoding (कोडिंग-डिकोडिंग)", "Blood Relations (रक्त संबंध)", "Number Series (संख्या श्रृंखला)"],
+        science: ["Human Body & Laws of Motion", "Periodic Table & Chemical Bonding", "Light, Electricity & Magnetism"],
+        social_science: ["Indian Constitution & Polity", "Modern Indian History (1857–1947)", "Indian & World Geography"],
+        english: ["Spot the Error & Grammar Rules", "Synonyms, Antonyms & One Word", "Idioms, Phrases & Cloze Test"],
+        computer: ["Computer Architecture & Memory", "MS Office, Internet & Networking", "Cyber Security & Shortcuts"]
+      };
+      const list = chaptersByStream[subjKey] || chaptersByStream.mathematics;
+      const grid = document.getElementById('vault-subject-cards-grid');
+      if (!grid) return;
+
+      grid.innerHTML = list.map(ch => `
+        <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">50 Qs • 30 Mins</span>
+              <span class="text-[11px] text-amber-500 font-bold"><i class="fa-solid fa-shield-halved mr-1"></i>Subject Mock</span>
+            </div>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-2">${ch} - Mock Exam</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Full 30-Minute Proctored Subject Simulation.</p>
+          </div>
+          <button onclick="showToast('Starting Subject Mock: ${ch}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">Launch Subject Mock</button>
+        </div>
+      `).join('');
+    }
+
+    let savedCustomChapters = [
+      { id: 1, subject: "Mathematics", title: "Percentage (प्रतिशत)", questions: 50 },
+      { id: 2, subject: "Reasoning", title: "Coding-Decoding (कोडिंग-डिकोडिंग)", questions: 50 }
+    ];
+
+    function populateCustomChapterSelect() {
+      const subj = document.getElementById('custom-subj-select')?.value || 'Mathematics';
+      const chapSelect = document.getElementById('custom-chap-select');
+      if (!chapSelect) return;
+      const map = {
+        "Mathematics": ["Percentage (प्रतिशत)", "Profit & Loss (लाभ और हानि)", "Time & Work (समय और कार्य)", "Ratio & Proportion (अनुपात)"],
+        "Reasoning": ["Coding-Decoding (कोडिंग-डिकोडिंग)", "Blood Relations (रक्त संबंध)", "Syllogism (न्याय निगमन)"],
+        "Science": ["Human Body & Laws of Motion", "Periodic Table & Chemical Bonding", "Light & Electricity"],
+        "GK & Social Science": ["Indian Constitution & Polity", "Modern Indian History", "Indian Geography"],
+        "English": ["Spot the Error & Grammar", "Synonyms & Antonyms", "Idioms & Phrases"],
+        "Computer": ["Computer Architecture & Memory", "MS Office & Networking", "Cyber Security"]
+      };
+      const opts = map[subj] || map["Mathematics"];
+      chapSelect.innerHTML = opts.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+
+    function addNewCustomChapter() {
+      const subj = document.getElementById('custom-subj-select')?.value || 'Mathematics';
+      const title = document.getElementById('custom-chap-select')?.value || 'Percentage (प्रतिशत)';
+      savedCustomChapters.push({ id: Date.now(), subject: subj, title, questions: 50 });
+      renderCustomChaptersList();
+      showToast(`Added "${title}" to Custom Chapters!`);
+    }
+
+    function removeCustomChapter(id) {
+      savedCustomChapters = savedCustomChapters.filter(item => item.id !== id);
+      renderCustomChaptersList();
+      showToast('Removed chapter from repository.');
+    }
+
+    function renderCustomChaptersList() {
+      const grid = document.getElementById('custom-chapters-list-grid');
+      if (!grid) return;
+      if (!savedCustomChapters.length) {
+        grid.innerHTML = `<div class="col-span-full p-8 rounded-2xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">No custom chapters added yet.</div>`;
+        return;
+      }
+      grid.innerHTML = savedCustomChapters.map(ch => `
+        <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">${ch.subject}</span>
+              <button onclick="removeCustomChapter(${ch.id})" class="text-xs text-slate-400 hover:text-rose-500 cursor-pointer" title="Remove"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-2">${ch.title}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${ch.questions} Bilingual Questions</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="showToast('Practice: ${ch.title}')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">Practice</button>
+            <button onclick="showToast('Subject Mock: ${ch.title}')" class="bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">Subject Mock</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openSubjectDirect(subjKey) {
+      switchTab('practice');
+      renderDemoSubject(subjKey);
+    }
+
+    function renderDemoSubject(subjKey) {
+      document.querySelectorAll('.psubj-btn').forEach(btn => {
+        btn.className = "psubj-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 cursor-pointer";
+      });
+      const activeBtn = document.getElementById('psubj-' + subjKey);
+      if (activeBtn) {
+        activeBtn.className = "psubj-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white cursor-pointer";
+      }
+
+      const chaptersByStream = {
+        mathematics: ["Percentage (प्रतिशत)", "Profit & Loss (लाभ और हानि)", "Time & Work (समय और कार्य)"],
+        reasoning: ["Coding-Decoding (कोडिंग-डिकोडिंग)", "Blood Relations (रक्त संबंध)", "Number Series (संख्या श्रृंखला)"],
+        science: ["Human Body & Laws of Motion", "Periodic Table & Chemical Bonding", "Light, Electricity & Magnetism"],
+        social_science: ["Indian Constitution & Polity", "Modern Indian History (1857–1947)", "Indian & World Geography"],
+        english: ["Spot the Error & Grammar Rules", "Synonyms, Antonyms & One Word", "Idioms, Phrases & Cloze Test"],
+        computer: ["Computer Architecture & Memory", "MS Office, Internet & Networking", "Cyber Security & Shortcuts"]
+      };
+      const list = chaptersByStream[subjKey] || chaptersByStream.mathematics;
+      const box = document.getElementById('demo-practice-cards');
+      if (!box) return;
+      box.innerHTML = list.map(ch => `
+        <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400">50 Qs • 30s Timer</span>
+              <span class="text-[10px] text-teal-500 font-bold"><i class="fa-solid fa-language mr-1"></i>EN + हिंदी Inside</span>
+            </div>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-2">${ch}</h3>
+            <p class="text-xs text-slate-400 mb-5">TCS Pattern Questions with Detailed Explanation.</p>
+          </div>
+          <button onclick="showToast('Starting Practice: ${ch}')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">Launch Practice</button>
+        </div>
+      `).join('');
+    }
+
+    function toggleExamDropdown(e) {
+      e.stopPropagation();
+      document.getElementById('exam-dropdown-menu')?.classList.toggle('hidden');
+    }
+    window.addEventListener('click', () => {
+      document.getElementById('exam-dropdown-menu')?.classList.add('hidden');
+    });
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-navigation-drawer');
+      if (!drawer) return;
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+      } else {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+      }
+    }
+
+    function toggleDrawerExamsList() {
+      const list = document.getElementById('drawer-exams-list');
+      const icon = document.getElementById('drawer-exams-chevron');
+      if (!list) return;
+      list.classList.toggle('hidden');
+      if (icon) icon.classList.toggle('rotate-180');
+    }
+
+    function openStudentProfileModal() {
+      const modal = document.getElementById('student-profile-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeStudentProfileModal() {
+      const modal = document.getElementById('student-profile-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleQuickSearch(val) {
+      const box = document.getElementById('quick-search-dropdown');
+      const q = val.trim().toLowerCase();
+      if (!q) { box.classList.add('hidden'); return; }
+      const items = [
+        { name: "SSC CGL 2026 Tier-1 Mock", tab: "vault" },
+        { name: "RRB NTPC Shift-wise PYQ", tab: "pyq" },
+        { name: "Percentage (प्रतिशत) Practice", tab: "practice" },
+        { name: "15 October 2026 Current Affairs", tab: "ca" }
+      ].filter(x => x.name.toLowerCase().includes(q));
+      box.innerHTML = items.length ? items.map(x => `
+        <div onclick="${x.tab === 'ca' ? "openCurrentAffairsModal('daily')" : `switchTab('${x.tab}')`}; document.getElementById('quick-search-dropdown').classList.add('hidden');" class="px-3 py-2 rounded-xl hover:bg-indigo-500/10 text-xs font-bold cursor-pointer flex items-center justify-between">
+          <span>${x.name}</span><i class="fa-solid fa-arrow-right text-[10px] text-indigo-400"></i>
+        </div>
+      `).join('') : `<div class="p-3 text-xs text-slate-400 text-center">No match found</div>`;
+      box.classList.remove('hidden');
+    }
+
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      htmlEl.classList.toggle('dark');
+      const isDark = htmlEl.classList.contains('dark');
+      if (icon) {
+        icon.className = isDark ? "fa-solid fa-moon text-xs text-indigo-400" : "fa-solid fa-sun text-xs text-amber-500";
+      }
+      showToast(isDark ? "Dark Mode Activated 🌙" : "Light Mode Activated ☀️");
+    }
+
+    // Strictly 2 Language Options: English & हिंदी
+    function switchLanguage(lang) {
+      currentAppLang = (lang === 'hi') ? 'hi' : 'en';
+      const selectEl = document.getElementById('lang-selector');
+      if (selectEl && selectEl.value !== currentAppLang) {
+        selectEl.value = currentAppLang;
+      }
+
+      const dict = uiTranslations[currentAppLang] || uiTranslations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerText = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+
+      loadCurrentAffairsWidget();
+
+      const msg = currentAppLang === 'hi'
+        ? "डैशबोर्ड की भाषा 'हिंदी' कर दी गई है 🇮🇳"
+        : "Dashboard language switched to English";
+      showToast(msg);
+    }
+
+    function cycleLanguage() {
+      const next = currentAppLang === 'en' ? 'hi' : 'en';
+      switchLanguage(next);
+    }
+
+    const ALL_EXAMS_CATALOG = [
+      {
+        id: "ssc_cgl",
+        name: "SSC CGL",
+        category: "SSC Exams",
+        sub: "Tier-1 & Tier-2 • Latest TCS Pattern",
+        icon: "fa-building-columns",
+        mocksCount: "25 Full Mocks",
+        pyqTitle: "SSC CGL Tier-1 & 2 (2019–2025) All Shifts",
+        pyqDesc: "35+ Official Shift-wise Bilingual Papers",
+        mockTitle: "SSC CGL 2026 Tier-1 Full Mock #1",
+        mockDesc: "100 Qs • 60 Mins • Maths, Reasoning, GK, English",
+        practiceStreams: ["Percentage & Ratio", "Coding-Decoding", "SSC General Awareness", "Error Detection"]
+      },
+      {
+        id: "rrb_ntpc",
+        name: "RRB NTPC",
+        category: "Railway (RRB)",
+        sub: "CBT-1 & CBT-2 • Group-D & ALP",
+        icon: "fa-train-subway",
+        mocksCount: "20 Full Mocks",
+        pyqTitle: "RRB NTPC CBT-1 & CBT-2 Official Shift Sets",
+        pyqDesc: "40+ Official Railway Shift Papers",
+        mockTitle: "RRB NTPC CBT-1 Speed Mock #1",
+        mockDesc: "100 Qs • 90 Mins • Maths, Reasoning, General Science & GA",
+        practiceStreams: ["Time & Work", "Railway General Science", "Number Series", "Current Affairs"]
+      },
+      {
+        id: "bihar_ssc",
+        name: "Bihar SSC",
+        category: "Bihar / State Exams",
+        sub: "BSSC Inter Level • Bihar Police & SI",
+        icon: "fa-shield-halved",
+        mocksCount: "18 Full Mocks",
+        pyqTitle: "Bihar SSC & Bihar Police Official PYQ Sets",
+        pyqDesc: "Previous Year Shift Papers with Bilingual Notes",
+        mockTitle: "Bihar SSC Inter Level Special Mock #1",
+        mockDesc: "150 Qs • General Studies, Bihar GK, Maths & Science",
+        practiceStreams: ["Bihar Special GK", "General Science", "Arithmetic Maths", "Logical Reasoning"]
+      },
+      {
+        id: "ibps_po",
+        name: "IBPS PO",
+        category: "Banking",
+        sub: "SBI PO • IBPS Clerk • RBI Assistant",
+        icon: "fa-landmark",
+        mocksCount: "22 Full Mocks",
+        pyqTitle: "IBPS PO & SBI Clerk Memory Based Papers",
+        pyqDesc: "Prelims & Mains Shift-wise Solved Sets",
+        mockTitle: "IBPS PO 2026 Prelims Speed Mock #1",
+        mockDesc: "100 Qs • 60 Mins • Quant, Reasoning Puzzles & English",
+        practiceStreams: ["Data Interpretation", "Seating Arrangement", "Reading Comprehension", "Banking Awareness"]
+      },
+      {
+        id: "upsc_cse",
+        name: "UPSC CSE",
+        category: "UPSC & State PCS",
+        sub: "GS Paper-1 • CSAT • BPSC • UPPSC",
+        icon: "fa-award",
+        mocksCount: "15 GS Mocks",
+        pyqTitle: "UPSC CSE Prelims (2015–2025) GS-1 & CSAT",
+        pyqDesc: "Official Topic-wise & Year-wise Detailed Solutions",
+        mockTitle: "UPSC Prelims GS Paper-1 Full Simulation",
+        mockDesc: "100 Statement-based Bilingual Questions • 120 Mins",
+        practiceStreams: ["Indian Polity", "Modern History", "Environment & Geography", "Economy"]
+      }
+    ];
+
+    let myAddedExamIds = ["ssc_cgl", "rrb_ntpc"];
+    let focusedExamId = "ssc_cgl";
+    let showOnlyMyExamsInVault = true;
+    let showOnlyMyExamsInPyq = true;
+
+    function isExamAdded(examId) {
+      return myAddedExamIds.includes(examId);
+    }
+
+    function toggleAddExam(examId, e) {
+      if (e) e.stopPropagation();
+      const examObj = ALL_EXAMS_CATALOG.find(x => x.id === examId);
+      if (!examObj) return;
+
+      if (isExamAdded(examId)) {
+        myAddedExamIds = myAddedExamIds.filter(id => id !== examId);
+        showToast(`Removed "${examObj.name}" from My Exams`);
+        if (focusedExamId === examId) {
+          focusedExamId = myAddedExamIds[0] || ALL_EXAMS_CATALOG[0].id;
+        }
+      } else {
+        myAddedExamIds.push(examId);
+        focusedExamId = examId;
+        showToast(`✓ Added "${examObj.name}"! Hub updated.`);
+      }
+      renderAllExamUIComponents();
+    }
+
+    function openSpecificExamWorkspace(examId) {
+      focusedExamId = examId;
+      if (!isExamAdded(examId)) {
+        myAddedExamIds.push(examId);
+      }
+      document.getElementById('exam-dropdown-menu')?.classList.add('hidden');
+      renderAllExamUIComponents();
+      switchTab('my_exams');
+    }
+
+    function openExamSelectorModal() {
+      const m = document.getElementById('exam-selector-modal');
+      if (!m) return;
+      renderAllExamUIComponents();
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeExamSelectorModal() {
+      const m = document.getElementById('exam-selector-modal');
+      if (!m) return;
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function toggleVaultOnlyMyExams() {
+      showOnlyMyExamsInVault = !showOnlyMyExamsInVault;
+      renderVaultExamMocksGrid();
+    }
+
+    function togglePyqOnlyMyExams() {
+      showOnlyMyExamsInPyq = !showOnlyMyExamsInPyq;
+      renderPyqExamCardsGrid();
+    }
+
+    function renderVaultExamMocksGrid() {
+      const grid = document.getElementById('vault-exams-view');
+      const filterBtn = document.getElementById('vault-filter-my-btn');
+      if (!grid) return;
+
+      const list = (showOnlyMyExamsInVault && myAddedExamIds.length > 0)
+        ? ALL_EXAMS_CATALOG.filter(x => myAddedExamIds.includes(x.id))
+        : ALL_EXAMS_CATALOG;
+
+      if (filterBtn) {
+        filterBtn.innerHTML = (showOnlyMyExamsInVault && myAddedExamIds.length > 0)
+          ? `<i class="fa-solid fa-filter mr-1"></i> Showing: My Added Exams (${list.length}) • Show All`
+          : `<i class="fa-solid fa-globe mr-1"></i> Showing: All Exams (${ALL_EXAMS_CATALOG.length}) • Filter Mine`;
+      }
+
+      grid.innerHTML = list.map(ex => `
+        <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">${ex.name} • ${ex.mocksCount}</span>
+              <span class="text-[11px] text-teal-600 dark:text-teal-400 font-bold"><i class="fa-solid fa-circle-check mr-1"></i>${isExamAdded(ex.id) ? 'Added' : 'Available'}</span>
+            </div>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mb-1">${ex.mockTitle}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${ex.mockDesc}</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="showToast('Launching ${ex.mockTitle}...')" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">Start Exam Mock</button>
+            <button onclick="openSpecificExamWorkspace('${ex.id}')" class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs py-2.5 rounded-xl cursor-pointer" title="View Hub">PYQ</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderPyqExamCardsGrid() {
+      const grid = document.getElementById('pyq-dynamic-cards-grid');
+      const filterBtn = document.getElementById('pyq-filter-my-btn');
+      if (!grid) return;
+
+      const list = (showOnlyMyExamsInPyq && myAddedExamIds.length > 0)
+        ? ALL_EXAMS_CATALOG.filter(x => myAddedExamIds.includes(x.id))
+        : ALL_EXAMS_CATALOG;
+
+      if (filterBtn) {
+        filterBtn.innerHTML = (showOnlyMyExamsInPyq && myAddedExamIds.length > 0)
+          ? `<i class="fa-solid fa-filter mr-1"></i> Showing: My Added Exams (${list.length}) • Show All`
+          : `<i class="fa-solid fa-globe mr-1"></i> Showing: All Exams (${ALL_EXAMS_CATALOG.length}) • Filter Mine`;
+      }
+
+      grid.innerHTML = list.map(ex => `
+        <div class="glow-card bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400">${ex.name} Official PYQ</span>
+              <span class="text-[10px] font-bold text-indigo-500">Shift-wise</span>
+            </div>
+            <h3 class="text-base font-extrabold text-slate-900 dark:text-white mt-2 mb-1">${ex.pyqTitle}</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">${ex.pyqDesc}</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="showToast('Opening ${ex.name} Shift-wise PYQ Paper...')" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs py-2.5 rounded-xl cursor-pointer">Solve Shift Paper</button>
+            <button onclick="openSpecificExamWorkspace('${ex.id}')" class="px-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs py-2.5 rounded-xl cursor-pointer">Hub</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderMyExamsWorkspaceTab() {
+      const focusedBox = document.getElementById('focused-exam-workspace');
+      const grid = document.getElementById('my-added-exams-grid');
+      if (!focusedBox || !grid) return;
+
+      const focused = ALL_EXAMS_CATALOG.find(x => x.id === focusedExamId) || ALL_EXAMS_CATALOG[0];
+
+      focusedBox.innerHTML = `
+        <div class="bg-gradient-to-br from-indigo-600/10 via-white to-teal-500/10 dark:from-indigo-600/15 dark:via-[#131b2e] dark:to-teal-500/10 border-2 border-indigo-500/40 rounded-3xl p-6 sm:p-7 shadow-lg">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 mb-5 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-md">
+                <i class="fa-solid ${focused.icon}"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-700 dark:text-teal-300">Active Target Exam</span>
+                  <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400">${focused.category}</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">${focused.name} — Complete Preparation Hub</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">${focused.sub}</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="switchTab('vault')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow cursor-pointer">
+                <i class="fa-solid fa-shield-halved mr-1"></i> All ${focused.name} Mocks
+              </button>
+              <button onclick="switchTab('pyq')" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow cursor-pointer">
+                <i class="fa-solid fa-file-lines mr-1"></i> All ${focused.name} PYQs
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">1. Full Mock Series (${focused.mocksCount})</span>
+                <h4 class="text-sm font-extrabold text-slate-900 dark:text-white mt-2">${focused.mockTitle}</h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 mb-4">${focused.mockDesc}</p>
+              </div>
+              <button onclick="showToast('Starting ${focused.mockTitle}...')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">
+                Start ${focused.name} Mock
+              </button>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400">2. Official PYQ Papers</span>
+                <h4 class="text-sm font-extrabold text-slate-900 dark:text-white mt-2">${focused.pyqTitle}</h4>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1 mb-4">${focused.pyqDesc}</p>
+              </div>
+              <button onclick="showToast('Opening ${focused.pyqTitle}...')" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs py-2.5 rounded-xl cursor-pointer">
+                Solve ${focused.name} PYQ
+              </button>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#0b0f19] border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-teal-500/15 text-teal-600 dark:text-teal-400">3. Targeted Topics & Syllabus</span>
+                <h4 class="text-sm font-extrabold text-slate-900 dark:text-white mt-2">${focused.name} Special Practice</h4>
+                <div class="flex flex-wrap gap-1.5 mt-2 mb-4">
+                  ${focused.practiceStreams.map(t => `<span onclick="switchTab('practice')" class="text-[10px] font-bold px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#131b2e] hover:bg-teal-600 hover:text-white cursor-pointer transition">${t}</span>`).join('')}
+                </div>
+              </div>
+              <button onclick="switchTab('practice')" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs py-2.5 rounded-xl cursor-pointer">
+                Practice ${focused.name} Chapters
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const addedExams = ALL_EXAMS_CATALOG.filter(x => myAddedExamIds.includes(x.id));
+      if (!addedExams.length) {
+        grid.innerHTML = `
+          <div class="col-span-full p-8 rounded-2xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-center">
+            <p class="text-sm font-extrabold text-slate-900 dark:text-white mb-1">No Target Exams Added Yet</p>
+            <p class="text-xs text-slate-500 mb-4">Click the button below to add target exams.</p>
+            <button onclick="openExamSelectorModal()" class="bg-indigo-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl cursor-pointer"><i class="fa-solid fa-plus mr-1"></i> Add Exam Now</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = addedExams.map(ex => {
+        const isCurrent = ex.id === focusedExamId;
+        return `
+          <div onclick="openSpecificExamWorkspace('${ex.id}')" class="glow-card bg-white dark:bg-[#131b2e] border ${isCurrent ? 'border-indigo-500 ring-2 ring-indigo-500/20' : 'border-slate-200 dark:border-slate-800'} p-5 rounded-2xl flex flex-col justify-between cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="w-9 h-9 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center"><i class="fa-solid ${ex.icon}"></i></span>
+                <button onclick="toggleAddExam('${ex.id}', event)" class="text-[10px] font-extrabold px-2.5 py-1 rounded-lg bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white transition cursor-pointer" title="Remove">
+                  <i class="fa-solid fa-trash-can mr-1"></i> Remove
+                </button>
+              </div>
+              <h4 class="text-base font-extrabold text-slate-900 dark:text-white">${ex.name}</h4>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 mb-4">${ex.sub}</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] font-bold">
+              <span class="text-indigo-600 dark:text-indigo-400"><i class="fa-solid fa-shield-halved mr-1"></i>${ex.mocksCount}</span>
+              <span class="text-amber-600 dark:text-amber-400 text-right"><i class="fa-solid fa-file-lines mr-1"></i>Official PYQs</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAllExamUIComponents() {
+      const count = myAddedExamIds.length;
+      const hBadge = document.getElementById('header-pinned-count');
+      if (hBadge) hBadge.innerText = count;
+      const dBadge = document.getElementById('drawer-pinned-badge');
+      if (dBadge) dBadge.innerText = `${count} Added`;
+      const mSummary = document.getElementById('modal-selected-Summary');
+      if (mSummary) mSummary.innerText = `${count} Exam${count === 1 ? '' : 's'} Added in Your Hub`;
+
+      const headerList = document.getElementById('header-exams-add-list');
+      if (headerList) {
+        headerList.innerHTML = ALL_EXAMS_CATALOG.map(ex => {
+          const added = isExamAdded(ex.id);
+          return `
+            <div class="flex items-center justify-between gap-2 p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/70 transition">
+              <div onclick="openSpecificExamWorkspace('${ex.id}')" class="flex items-center gap-2.5 flex-1 cursor-pointer min-w-0">
+                <i class="fa-solid ${ex.icon} text-indigo-500 w-4"></i>
+                <div class="truncate">
+                  <p class="text-xs font-extrabold text-slate-800 dark:text-slate-200 truncate">${ex.name}</p>
+                  <p class="text-[10px] text-slate-400 truncate">${ex.sub}</p>
+                </div>
+              </div>
+              <button onclick="toggleAddExam('${ex.id}', event)" class="shrink-0 px-2.5 py-1 rounded-lg text-[10px] font-extrabold transition cursor-pointer ${added ? 'bg-teal-500/15 text-teal-600 dark:text-teal-400 border border-teal-500/30' : 'bg-indigo-600 text-white'}">
+                ${added ? '<i class="fa-solid fa-check mr-1"></i>Added' : '<i class="fa-solid fa-plus mr-1"></i>Add'}
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const drawerList = document.getElementById('drawer-exams-list');
+      if (drawerList) {
+        drawerList.innerHTML = ALL_EXAMS_CATALOG.map(ex => {
+          const added = isExamAdded(ex.id);
+          return `
+            <div class="flex items-center justify-between gap-2 py-1.5 px-2 rounded-xl hover:bg-indigo-500/10">
+              <span onclick="openSpecificExamWorkspace('${ex.id}'); toggleMobileDrawer();" class="flex-1 text-slate-700 dark:text-slate-200 font-bold cursor-pointer truncate">
+                <i class="fa-solid ${ex.icon} text-indigo-500 mr-1.5"></i>${ex.name}
+              </span>
+              <button onclick="toggleAddExam('${ex.id}', event)" class="px-2 py-0.5 rounded-lg text-[10px] font-extrabold cursor-pointer ${added ? 'bg-teal-500/20 text-teal-500' : 'bg-indigo-600 text-white'}">
+                ${added ? '✓ Added' : '+ Add'}
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const pinnedChips = document.getElementById('dashboard-pinned-exams-chips');
+      if (pinnedChips) {
+        const addedObjs = ALL_EXAMS_CATALOG.filter(x => myAddedExamIds.includes(x.id));
+        if (!addedObjs.length) {
+          pinnedChips.innerHTML = `<span onclick="openExamSelectorModal()" class="text-xs text-amber-600 dark:text-amber-400 font-bold cursor-pointer">+ Click here to add your first Target Exam</span>`;
+        } else {
+          pinnedChips.innerHTML = addedObjs.map(ex => `
+            <div onclick="openSpecificExamWorkspace('${ex.id}')" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white dark:bg-[#131b2e] border border-indigo-200 dark:border-slate-700 hover:border-indigo-500 shadow-sm cursor-pointer transition">
+              <i class="fa-solid ${ex.icon} text-indigo-600 dark:text-indigo-400 text-xs"></i>
+              <span class="text-xs font-extrabold text-slate-900 dark:text-white">${ex.name}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-teal-500/15 text-teal-600 dark:text-teal-400 font-bold">PYQ & Mock</span>
+            </div>
+          `).join('');
+        }
+      }
+
+      const chipsBar = document.getElementById('quick-exam-chips-bar');
+      if (chipsBar) {
+        chipsBar.innerHTML = ALL_EXAMS_CATALOG.map(ex => {
+          const added = isExamAdded(ex.id);
+          return `
+            <div onclick="openSpecificExamWorkspace('${ex.id}')" class="quick-chip shrink-0 flex items-center gap-3 px-4 py-3 rounded-2xl bg-white dark:bg-[#131b2e] border ${added ? 'border-indigo-500/60 bg-indigo-50/20' : 'border-slate-200 dark:border-slate-800'} hover:border-indigo-500 shadow-sm cursor-pointer">
+              <span class="w-9 h-9 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center"><i class="fa-solid ${ex.icon}"></i></span>
+              <div class="text-left">
+                <p class="text-xs font-extrabold text-slate-900 dark:text-white">${ex.name}</p>
+                <p class="text-[10px] text-slate-400">${ex.sub}</p>
+              </div>
+              <button onclick="toggleAddExam('${ex.id}', event)" title="${added ? 'Added' : 'Add'}" class="ml-2 px-2.5 py-1.5 rounded-xl text-[10px] font-extrabold transition cursor-pointer ${added ? 'bg-teal-500/15 text-teal-600 dark:text-teal-400 border border-teal-500/30' : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow'}">
+                ${added ? '<i class="fa-solid fa-check"></i> Added' : '<i class="fa-solid fa-plus"></i> Add'}
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const modalGrid = document.getElementById('modal-exams-catalog-grid');
+      if (modalGrid) {
+        modalGrid.innerHTML = ALL_EXAMS_CATALOG.map(ex => {
+          const added = isExamAdded(ex.id);
+          return `
+            <div onclick="toggleAddExam('${ex.id}', event)" class="p-4 rounded-2xl border ${added ? 'border-teal-500 bg-teal-500/5' : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0b0f19]'} flex items-center justify-between gap-3 cursor-pointer hover:border-indigo-500 transition">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                  <i class="fa-solid ${ex.icon}"></i>
+                </div>
+                <div class="min-w-0">
+                  <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white truncate">${ex.name}</h4>
+                  <p class="text-[10px] text-slate-500 dark:text-slate-400 truncate">${ex.sub}</p>
+                  <p class="text-[10px] text-indigo-500 font-bold mt-0.5">${ex.mocksCount} • Shift PYQs</p>
+                </div>
+              </div>
+              <button type="button" class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-extrabold cursor-pointer ${added ? 'bg-teal-600 text-white' : 'bg-indigo-600 text-white'}">
+                ${added ? '<i class="fa-solid fa-check mr-1"></i>Added' : '<i class="fa-solid fa-plus mr-1"></i>Add'}
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderVaultExamMocksGrid();
+      renderPyqExamCardsGrid();
+      renderMyExamsWorkspaceTab();
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      t.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => t.classList.add('translate-y-24', 'opacity-0'), 2600);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      switchLanguage('en');
+      renderAllExamUIComponents();
+    });
+  </script>
+</body>
+</html>
+```
