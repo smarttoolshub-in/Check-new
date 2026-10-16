@@ -249,6 +249,64 @@ html { color-scheme: light; } html.dark { color-scheme: dark; }
 }
 </style>
 
+
+<style id="targettire-reference-dashboard-v5">
+/* Reference-inspired hero: compact top, generous balanced two-column cards. */
+#main-site-header .flex.items-center.justify-between.h-20{height:62px!important;min-height:62px!important}
+#tab-dashboard>section:first-child{padding:7px 16px!important;background:linear-gradient(90deg,#4338ca,#4f46e5 45%,#0f9b91)!important;border-bottom:0!important}
+#tab-dashboard>section:first-child .max-w-7xl{gap:8px!important}
+#tab-dashboard>section:nth-child(2){padding-top:24px!important;padding-bottom:22px!important}
+#tab-dashboard>section:nth-child(2)>.max-w-7xl{max-width:1500px!important;grid-template-columns:minmax(0,1.25fr) minmax(350px,.9fr)!important;gap:22px!important;align-items:stretch!important}
+#tab-dashboard>section:nth-child(2)>.max-w-7xl>div{background:#fff;border:1px solid #dce4f0;border-radius:26px;padding:28px!important;box-shadow:0 12px 35px rgba(30,41,59,.055)}
+.dark #tab-dashboard>section:nth-child(2)>.max-w-7xl>div{background:#111827;border-color:#263449}
+#tab-dashboard>section:nth-child(2) h1{font-size:clamp(30px,3.15vw,47px)!important;line-height:1.08!important;letter-spacing:-.04em!important;margin-bottom:14px!important}
+#tab-dashboard>section:nth-child(2) .inline-flex.rounded-full{margin-bottom:14px!important}
+#tab-dashboard>section:nth-child(2) p[data-i18n="heroDesc"]{font-size:14px!important;line-height:1.65!important;margin-bottom:18px!important}
+#tab-dashboard>section:nth-child(2) .bg-white.dark\:bg-\[\#131b2e\]{border-radius:17px!important}
+#tab-dashboard>section:nth-child(2) .lg\:col-span-5{display:flex;flex-direction:column;gap:14px!important}
+#tab-dashboard>section:nth-child(2) .lg\:col-span-5>div{border-radius:18px!important}
+#tab-dashboard>section:nth-child(3){padding-top:8px!important;padding-bottom:22px!important}
+#tab-dashboard>section:nth-child(3)>.max-w-7xl{max-width:1500px!important;gap:15px!important}
+#tab-dashboard>section:nth-child(3) .grid.grid-cols-1.lg\:grid-cols-12{gap:15px!important}
+#tab-dashboard>section:nth-child(3) .grid.grid-cols-1.lg\:grid-cols-12>div{border-radius:20px!important;padding:20px!important;box-shadow:0 7px 22px rgba(15,23,42,.045)}
+.tt-groups-wrap{background:linear-gradient(180deg,#f8faff,#f1f5fb);border-top:1px solid #e3e9f3}
+.dark .tt-groups-wrap{background:linear-gradient(180deg,#0b1220,#101827);border-color:#253247}
+.tt-section-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:13px}
+.tt-section-heading h2{font-size:20px;line-height:1.2;font-weight:900;letter-spacing:-.025em;color:#111827;margin:3px 0 0}
+.dark .tt-section-heading h2{color:#f8fafc}
+.tt-section-heading p{font-size:12px;color:#64748b;margin-top:5px}
+.dark .tt-section-heading p{color:#94a3b8}
+.tt-section-heading>i{display:flex;align-items:center;justify-content:center;width:43px;height:43px;border-radius:14px;background:#e8edff;color:#4f46e5;font-size:18px;flex-shrink:0}
+.dark .tt-section-heading>i{background:#1c2843;color:#a5b4fc}
+.tt-section-kicker{font-size:9px;font-weight:900;letter-spacing:.15em;color:#6366f1}
+.tt-pair-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-bottom:26px}
+.tt-feature-card{position:relative;display:flex;align-items:center;gap:15px;min-height:104px;padding:18px 20px;text-align:left;border:1px solid #e0e7f1;border-radius:19px;background:#fff;box-shadow:0 5px 17px rgba(15,23,42,.045);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.tt-feature-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--tt-color,#4f46e5)}
+.tt-feature-card:hover{transform:translateY(-2px);border-color:var(--tt-color,#818cf8);box-shadow:0 12px 24px rgba(15,23,42,.09)}
+.dark .tt-feature-card{background:#131d2e;border-color:#29364a}
+.tt-feature-icon{width:47px;height:47px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:15px;background:color-mix(in srgb,var(--tt-color) 12%,white);color:var(--tt-color);font-size:19px}
+.dark .tt-feature-icon{background:color-mix(in srgb,var(--tt-color) 20%,#131d2e)}
+.tt-feature-copy{display:flex;flex-direction:column;gap:5px;min-width:0;padding-right:12px}
+.tt-feature-copy b{font-size:14px;font-weight:900;color:#111827;line-height:1.25}
+.dark .tt-feature-copy b{color:#f8fafc}
+.tt-feature-copy small{font-size:11px;color:#64748b;line-height:1.45}
+.dark .tt-feature-copy small{color:#9aa9bd}
+.tt-feature-arrow{margin-left:auto;color:var(--tt-color);font-size:13px;flex-shrink:0}
+.tt-indigo{--tt-color:#4f46e5}.tt-teal{--tt-color:#0d9488}.tt-amber{--tt-color:#d97706}.tt-rose{--tt-color:#e11d48}.tt-violet{--tt-color:#7c3aed}.tt-green{--tt-color:#059669}.tt-blue{--tt-color:#2563eb}.tt-sky{--tt-color:#0284c7}
+@media(min-width:768px) and (max-width:1100px){#tab-dashboard>section:nth-child(2)>.max-w-7xl{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr)!important;gap:15px!important}#tab-dashboard>section:nth-child(2)>.max-w-7xl>div{padding:20px!important}#tab-dashboard>section:nth-child(2) h1{font-size:34px!important}}
+@media(max-width:767px){#main-site-header .flex.items-center.justify-between.h-20{height:58px!important;min-height:58px!important}#tab-dashboard>section:nth-child(2){padding:13px 11px!important}#tab-dashboard>section:nth-child(2)>.max-w-7xl{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important}#tab-dashboard>section:nth-child(2)>.max-w-7xl>div{padding:17px!important;border-radius:20px!important}#tab-dashboard>section:nth-child(2) h1{font-size:31px!important}#tab-dashboard>section:nth-child(2) p[data-i18n="heroDesc"]{font-size:12px!important;margin-bottom:14px!important}#tab-dashboard>section:nth-child(3){padding:4px 11px 17px!important}#tab-dashboard>section:nth-child(3) .grid.grid-cols-1.lg\:grid-cols-12>div{padding:14px!important}.tt-groups-wrap{padding:22px 12px!important}.tt-section-heading h2{font-size:18px}.tt-section-heading p{font-size:11px}.tt-section-heading>i{width:38px;height:38px;font-size:16px}.tt-pair-grid{gap:9px;margin-bottom:22px}.tt-feature-card{min-height:115px;align-items:flex-start;gap:10px;padding:13px 11px;border-radius:15px}.tt-feature-icon{width:34px;height:34px;border-radius:11px;font-size:15px}.tt-feature-copy{padding-right:0;gap:5px}.tt-feature-copy b{font-size:12px}.tt-feature-copy small{font-size:10px}.tt-feature-arrow{position:absolute;right:10px;top:12px;font-size:10px}}
+@media(max-width:360px){.tt-pair-grid{grid-template-columns:1fr}.tt-feature-card{min-height:82px;align-items:center}.tt-feature-copy b{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.tt-feature-card{transition:none!important}}
+
+/* Final reference-layout polish: keep Practice and Mock only in the paired cards below. */
+#tab-dashboard>section:nth-child(2){padding-top:18px!important;padding-bottom:18px!important}
+#tab-dashboard>section:nth-child(2)>.max-w-7xl{gap:18px!important}
+#tab-dashboard>section:nth-child(2)>.max-w-7xl>div:first-child{display:flex;flex-direction:column;justify-content:center}
+#tab-dashboard>section:nth-child(2) .mb-8{margin-bottom:14px!important}
+#tab-dashboard>section:nth-child(2) .bg-white.dark\:bg-\[\#131b2e\].border.border-indigo-500\/30{margin-bottom:0!important}
+#tt-dashboard-groups{scroll-margin-top:80px}
+</style>
+
 </head>
 <body class="bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col transition-colors duration-300">
 <header id="main-site-header" class="bg-white/95 dark:bg-[#0b0f19]/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-50 transition-colors duration-300">
@@ -429,14 +487,7 @@ TargetTire evaluates your speed, accuracy, and chapter-wise mastery in real-time
 <i class="fa-solid fa-plus mr-1"></i> Add Exam
 </button>
 </div>
-<div class="flex flex-wrap gap-4">
-<button onclick="switchTab('vault')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs uppercase tracking-wider px-7 py-3 rounded-xl shadow transition cursor-pointer" data-i18n="exploreVault">
-Explore Mock Vault
-</button>
-<button onclick="switchTab('practice')" class="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-xs uppercase tracking-wider px-7 py-3 rounded-xl transition cursor-pointer" data-i18n="browsePracticeBtn">
-Practice Hub
-</button>
-</div>
+<!-- Practice Hub and Mock Test shortcuts are intentionally grouped below in the section cards. -->
 </div>
 <div class="lg:col-span-5 space-y-6">
 <div class="bg-white dark:bg-[#131b2e] border border-indigo-500/30 p-6 rounded-2xl shadow-xl relative">
@@ -505,6 +556,32 @@ Practice Hub
       <div id="quick-exam-chips-bar" class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2"><span class="text-xs text-slate-400">Loading exam catalog…</span></div>
     </div>
   </div>
+</section>
+
+<!-- Section-wise dashboard: grouped in pairs for a clean, reference-inspired layout -->
+<section id="tt-dashboard-groups" class="tt-groups-wrap px-4 sm:px-6 lg:px-8 py-7">
+ <div class="max-w-7xl mx-auto space-y-7">
+  <div class="tt-section-heading"><div><span class="tt-section-kicker">01 · PREPARE</span><h2>Exam Preparation</h2><p>Practice, test and improve your exam readiness.</p></div><i class="fa-solid fa-graduation-cap"></i></div>
+  <div class="tt-pair-grid">
+   <button class="tt-feature-card tt-indigo" onclick="switchTab('practice')"><span class="tt-feature-icon"><i class="fa-solid fa-book-open"></i></span><span class="tt-feature-copy"><b>Practice Hub</b><small>Subject-wise questions and chapter practice</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+   <button class="tt-feature-card tt-teal" onclick="switchTab('vault')"><span class="tt-feature-icon"><i class="fa-solid fa-shield-halved"></i></span><span class="tt-feature-copy"><b>Mock Test Vault</b><small>Full-length tests and exam-style practice</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+  </div>
+  <div class="tt-section-heading"><div><span class="tt-section-kicker">02 · YOUR TARGET</span><h2>Exams & Previous Papers</h2><p>Keep your target exams and previous-year practice close.</p></div><i class="fa-solid fa-bullseye"></i></div>
+  <div class="tt-pair-grid">
+   <button class="tt-feature-card tt-amber" onclick="switchTab('my_exams')"><span class="tt-feature-icon"><i class="fa-solid fa-graduation-cap"></i></span><span class="tt-feature-copy"><b>My Target Exams</b><small>Manage your selected exams and quick access</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+   <button class="tt-feature-card tt-rose" onclick="switchTab('pyq')"><span class="tt-feature-icon"><i class="fa-solid fa-file-circle-check"></i></span><span class="tt-feature-copy"><b>PYQ Hub</b><small>Previous-year questions and shift-wise papers</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+  </div>
+  <div class="tt-section-heading"><div><span class="tt-section-kicker">03 · STAY UPDATED</span><h2>Current Affairs</h2><p>Read updates and revise with quiz-based learning.</p></div><i class="fa-solid fa-newspaper"></i></div>
+  <div class="tt-pair-grid">
+   <button class="tt-feature-card tt-violet" onclick="openCurrentAffairsModal('daily')"><span class="tt-feature-icon"><i class="fa-solid fa-calendar-day"></i></span><span class="tt-feature-copy"><b>Daily Current Affairs</b><small>Latest daily notes and quiz</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+   <button class="tt-feature-card tt-green" onclick="openCurrentAffairsModal('monthly')"><span class="tt-feature-icon"><i class="fa-solid fa-calendar-days"></i></span><span class="tt-feature-copy"><b>Monthly CA Vault</b><small>Monthly revision notes and practice</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+  </div>
+  <div class="tt-section-heading"><div><span class="tt-section-kicker">04 · LEARN & TRACK</span><h2>Resources & Progress</h2><p>Study topic by topic and keep an eye on your progress.</p></div><i class="fa-solid fa-chart-line"></i></div>
+  <div class="tt-pair-grid">
+   <button class="tt-feature-card tt-blue" onclick="switchTab('chapters')"><span class="tt-feature-icon"><i class="fa-solid fa-layer-group"></i></span><span class="tt-feature-copy"><b>Chapters & Resources</b><small>Structured chapters and study material</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+   <button class="tt-feature-card tt-sky" onclick="switchTab('analytics')"><span class="tt-feature-icon"><i class="fa-solid fa-chart-column"></i></span><span class="tt-feature-copy"><b>Progress & Telemetry</b><small>Review your practice activity and results</small></span><i class="fa-solid fa-arrow-right tt-feature-arrow"></i></button>
+  </div>
+ </div>
 </section>
 
 </div>
