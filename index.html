@@ -182,6 +182,97 @@
       animation: aiBeaconBlink 1.2s infinite ease-in-out;
     }
   </style>
+<style id="targettire-responsive-dashboard-overrides">
+/* TargetTire responsive dashboard refresh — presentation-only overrides.
+   Existing HTML IDs, data modules, and JavaScript handlers are intentionally preserved. */
+:root { color-scheme: light; }
+html:not(.dark) body {
+  background: linear-gradient(135deg,#f8faff 0%,#f6f7ff 52%,#f6fffd 100%);
+}
+#main-site-header { box-shadow: 0 5px 22px rgba(54,65,120,.055); }
+#main-site-header > div { max-width: 1500px; }
+#main-site-header .h-16 { min-height: 68px; }
+#main-site-header button[aria-label="Open App Menu"] { width: 46px; height: 46px; }
+#tab-dashboard .glow-card,
+#tab-dashboard .rounded-3xl { transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+#tab-dashboard .glow-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(79,70,229,.09); }
+#tab-dashboard .max-w-7xl { max-width: 1500px; }
+#tab-dashboard section { scroll-margin-top: 90px; }
+#tab-dashboard .lg\:col-span-7,
+#tab-dashboard .lg\:col-span-5 { min-width: 0; }
+#mobile-navigation-drawer { align-items: center; }
+#mobile-navigation-drawer > div:nth-child(2) { position: relative; z-index: 1; }
+#mobile-navigation-drawer > div:nth-child(2) > div:first-child { width: 56px; }
+#mobile-navigation-drawer button { -webkit-tap-highlight-color: transparent; }
+#dashboard-pinned-exams-chips > * { max-width: 100%; }
+#qod-options-box > button { min-height: 44px; text-align: left; }
+#dashboard-ca-points-preview { overflow-wrap: anywhere; }
+
+@media (min-width: 640px) {
+  #mobile-navigation-drawer { justify-content: center; padding: 24px; }
+  #mobile-navigation-drawer > div:first-child { position: absolute; inset: 0; width: 100%; }
+  #mobile-navigation-drawer > div:nth-child(2) { width: min(100%, 620px); max-height: min(85vh, 760px); border-radius: 28px; margin: 0; }
+}
+@media (min-width: 1024px) {
+  #tab-dashboard > section:first-child { padding-top: 32px; padding-bottom: 36px; }
+  #tab-dashboard > section:first-child .lg\:col-span-7 { padding: 34px; }
+  #tab-dashboard > section:first-child .lg\:col-span-5 { padding: 28px; }
+}
+@media (max-width: 1023px) {
+  #main-site-header .h-16 { gap: 8px; }
+  #main-site-header .relative.hidden.sm\:block { width: clamp(110px, 22vw, 220px); }
+  #tab-dashboard > section:first-child { padding-top: 18px; }
+}
+@media (max-width: 639px) {
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important; }
+  #main-site-header { top: 0; }
+  #main-site-header > div { padding-left: 12px; padding-right: 12px; }
+  #main-site-header .h-16 { height: 66px; min-height: 66px; }
+  #main-site-header button[aria-label="Open App Menu"] { width: 42px; height: 42px; }
+  #main-site-header .w-12.h-12 { width: 46px; height: 46px; border-radius: 16px; }
+  #main-site-header .flex.items-center.space-x-3 { gap: 8px; }
+  #main-site-header .flex.items-center.space-x-3 > div:last-child { display: none; }
+  #main-site-header #lang-selector { max-width: 94px; font-size: 11px; }
+  #main-site-header .relative.flex.items-center { padding: 9px 8px; }
+  #main-site-header button[title="Switch Light / Dark Mode"] { width: 42px; height: 42px; flex-shrink: 0; }
+  #header-auth-container button { min-height: 42px; padding: 10px 12px; }
+  #tab-dashboard > section:first-child { padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 20px; }
+  #tab-dashboard > section:first-child .max-w-7xl { gap: 16px; }
+  #tab-dashboard > section:first-child .lg\:col-span-7 { padding: 22px 18px; border-radius: 26px; }
+  #tab-dashboard > section:first-child .lg\:col-span-5 { padding: 20px 16px; border-radius: 26px; }
+  #tab-dashboard h1 { font-size: clamp(29px, 8vw, 38px); line-height: 1.18; }
+  #tab-dashboard .glow-card { min-height: 136px; padding: 18px; }
+  #tab-dashboard .grid.grid-cols-1.sm\:grid-cols-3 { grid-template-columns: 1fr; gap: 12px; }
+  #tab-dashboard .grid.grid-cols-2.gap-2\.5 button { min-height: 44px; padding: 10px 8px; }
+  #dashboard-login-gate-banner { align-items: flex-start; flex-wrap: wrap; }
+  #dashboard-login-gate-banner > div { flex: 1 1 180px; }
+  #dashboard-login-gate-banner button { flex-shrink: 0; }
+  #dashboard-pinned-exams-chips { gap: 8px; }
+  #dashboard-pinned-exams-chips > * { flex: 0 1 auto; }
+  #qod-options-box { gap: 8px; }
+  #qod-options-box > button { min-height: 52px; padding: 12px; font-size: 13px; }
+  #tab-dashboard > section:not(:first-child) { padding-left: 12px; padding-right: 12px; }
+  #mobile-navigation-drawer > div:nth-child(2) { max-height: 82vh; padding: 16px; border-radius: 26px 26px 0 0; padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+  #mobile-navigation-drawer .grid.grid-cols-2.sm\:grid-cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; }
+  #mobile-navigation-drawer .grid.grid-cols-2.sm\:grid-cols-4 > button { padding: 10px 5px; min-width: 0; }
+  #mobile-navigation-drawer .grid.grid-cols-2.sm\:grid-cols-4 > button span { overflow-wrap: anywhere; }
+  body > nav.md\:hidden { min-height: 68px; padding-bottom: calc(6px + env(safe-area-inset-bottom)); }
+  body > nav.md\:hidden button { flex: 1 1 0; padding-left: 3px; padding-right: 3px; min-width: 0; }
+  body > nav.md\:hidden button i { font-size: 17px; }
+  body > nav.md\:hidden button span { font-size: 10px; white-space: nowrap; }
+}
+
+
+    /* Refined account/profile dialogs and draggable AI chat positioning */
+    #auth-modal, #student-profile-modal { overscroll-behavior: contain; }
+    #auth-modal > div { max-height: 92dvh; overflow-y: auto; }
+    #student-profile-modal input:focus, #student-profile-modal textarea:focus { outline: 2px solid rgba(99,102,241,.35); border-color: #6366f1; }
+    #ai-chat-window { width: min(24rem, calc(100vw - 16px)); max-height: min(75dvh, 620px); }
+    @media (max-width: 640px) {
+      #mobile-navigation-drawer > div:last-child { max-height: 88dvh; padding-bottom: max(1.25rem, env(safe-area-inset-bottom)); }
+      #ai-chat-window { width: min(24rem, calc(100vw - 16px)); }
+    }
+</style>
 </head>
 
 <body class="bg-gradient-to-br from-slate-50 via-indigo-50/35 to-teal-50/30 dark:from-[#0b0f19] dark:via-[#0b0f19] dark:to-[#0b0f19] text-slate-800 dark:text-slate-300 min-h-screen flex flex-col pb-20 md:pb-0 transition-colors duration-300">
@@ -404,7 +495,7 @@
           </div>
         </div>
         <div class="flex items-center gap-1.5 shrink-0">
-          <button onclick="toggleMobileDrawer(); openAuthModal();" class="px-2.5 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-[10px] cursor-pointer">Account</button>
+          <button onclick="toggleMobileDrawer(); openStudentProfile();" class="px-2.5 py-1.5 rounded-xl bg-indigo-600 text-white font-bold text-[10px] cursor-pointer">Profile</button>
           <button onclick="toggleMobileDrawer()" class="w-8 h-8 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-500 hover:text-rose-500 flex items-center justify-center cursor-pointer">
             <i class="fa-solid fa-xmark text-sm"></i>
           </button>
@@ -1272,6 +1363,35 @@
     </div>
   </div>
 
+  <!-- STUDENT PROFILE MODAL -->
+  <div id="student-profile-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-[70] hidden items-center justify-center p-3 sm:p-5">
+    <section class="w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-3xl bg-white dark:bg-[#131b2e] border border-slate-200 dark:border-slate-800 shadow-2xl">
+      <div class="p-5 sm:p-6 bg-gradient-to-r from-indigo-600/10 to-teal-500/10 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-teal-500 text-white flex items-center justify-center text-xl"><i class="fa-solid fa-user-graduate"></i></div>
+          <div><h3 class="text-lg font-extrabold text-slate-900 dark:text-white">Student Profile</h3><p class="text-xs text-slate-500 dark:text-slate-400">अपनी जानकारी भरें और सेव करें</p></div>
+        </div>
+        <button type="button" onclick="closeStudentProfile()" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-rose-500"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="student-profile-form" onsubmit="saveStudentProfile(event)" class="p-5 sm:p-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">पूरा नाम *</label><input id="profile-name" required type="text" autocomplete="name" placeholder="अपना पूरा नाम" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3.5 py-3 text-sm text-slate-900 dark:text-white"></div>
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">मोबाइल नंबर</label><input id="profile-phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10 अंकों का नंबर" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3.5 py-3 text-sm text-slate-900 dark:text-white"></div>
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">ईमेल</label><input id="profile-email" type="email" autocomplete="email" placeholder="you@example.com" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3.5 py-3 text-sm text-slate-900 dark:text-white"></div>
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">पढ़ाई / लक्ष्य परीक्षा</label><input id="profile-exam" type="text" placeholder="जैसे SSC CGL, Railway" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3.5 py-3 text-sm text-slate-900 dark:text-white"></div>
+        </div>
+        <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">पता</label><textarea id="profile-address" rows="2" autocomplete="street-address" placeholder="घर / सड़क / मोहल्ला" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3.5 py-3 text-sm text-slate-900 dark:text-white"></textarea></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">शहर</label><input id="profile-city" type="text" autocomplete="address-level2" placeholder="शहर" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-3 text-sm text-slate-900 dark:text-white"></div>
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">राज्य</label><input id="profile-state" type="text" autocomplete="address-level1" placeholder="राज्य" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-3 text-sm text-slate-900 dark:text-white"></div>
+          <div><label class="block text-xs font-bold mb-1.5 text-slate-600 dark:text-slate-300">PIN कोड</label><input id="profile-pin" type="text" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6 अंक" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-3 text-sm text-slate-900 dark:text-white"></div>
+        </div>
+        <p id="profile-status-msg" class="text-xs text-center text-teal-600 dark:text-teal-400 min-h-4"></p>
+        <div class="flex flex-col-reverse sm:flex-row gap-2"><button type="button" onclick="closeStudentProfile()" class="flex-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold py-3 text-sm">Cancel</button><button type="submit" class="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-teal-600 text-white font-bold py-3 text-sm shadow-lg"><i class="fa-solid fa-floppy-disk mr-1.5"></i> Save Profile</button></div>
+      </form>
+    </section>
+  </div>
+
   <!-- ADD CUSTOM CHAPTER MODAL -->
   <div id="add-chapter-modal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden items-center justify-center p-4">
     <div class="bg-white dark:bg-[#131b2e] w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 p-7">
@@ -1386,7 +1506,7 @@
     </div>
 
     <!-- Collapsible Interactive AI Chatbox Modal -->
-    <div id="ai-chat-window" class="hidden absolute bottom-16 right-0 w-[90vw] sm:w-96 bg-white dark:bg-[#131b2e] border border-indigo-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex-col max-h-[75vh] z-[10000]">
+    <div id="ai-chat-window" class="hidden absolute bottom-16 right-0 w-[min(90vw,24rem)] sm:w-96 bg-white dark:bg-[#131b2e] border border-indigo-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex-col max-h-[75vh] z-[10000]">
       <!-- Header -->
       <div class="bg-gradient-to-r from-indigo-600 via-indigo-700 to-teal-600 p-4 text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
@@ -2226,6 +2346,44 @@
       document.getElementById('current-affairs-modal').classList.remove('flex');
     }
 
+    // --- STUDENT PROFILE (stored locally on this device) ---
+    function openStudentProfile() {
+      const modal = document.getElementById('student-profile-modal');
+      const profile = JSON.parse(localStorage.getItem('targettire_profile') || '{}');
+      const user = currentUser || JSON.parse(localStorage.getItem('targettire_user') || '{}');
+      const values = {
+        'profile-name': profile.name || user.name || '', 'profile-phone': profile.phone || user.phone || '',
+        'profile-email': profile.email || user.email || '', 'profile-exam': profile.exam || '',
+        'profile-address': profile.address || '', 'profile-city': profile.city || '',
+        'profile-state': profile.state || '', 'profile-pin': profile.pin || ''
+      };
+      Object.entries(values).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.value = value; });
+      document.getElementById('profile-status-msg').textContent = '';
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+    }
+    function closeStudentProfile() {
+      const modal = document.getElementById('student-profile-modal');
+      modal.classList.add('hidden'); modal.classList.remove('flex');
+    }
+    function saveStudentProfile(e) {
+      e.preventDefault();
+      const profile = {
+        name: document.getElementById('profile-name').value.trim(),
+        phone: document.getElementById('profile-phone').value.trim(),
+        email: document.getElementById('profile-email').value.trim(),
+        exam: document.getElementById('profile-exam').value.trim(),
+        address: document.getElementById('profile-address').value.trim(),
+        city: document.getElementById('profile-city').value.trim(),
+        state: document.getElementById('profile-state').value.trim(),
+        pin: document.getElementById('profile-pin').value.trim()
+      };
+      localStorage.setItem('targettire_profile', JSON.stringify(profile));
+      if (currentUser) { currentUser.name = profile.name; currentUser.phone = profile.phone || currentUser.phone; currentUser.email = profile.email; localStorage.setItem('targettire_user', JSON.stringify(currentUser)); updateAuthHeader(); }
+      const drawerName = document.getElementById('drawer-user-name'); if (drawerName) drawerName.textContent = profile.name || 'TargetTire Aspirant';
+      document.getElementById('profile-status-msg').textContent = 'Profile इस डिवाइस पर सेव हो गई है।';
+      showToast('Student profile saved.');
+    }
+
     // --- AUTHENTICATION MODAL & FIREBASE LOGIC ---
     function openAuthModal() {
       document.getElementById('auth-modal').classList.remove('hidden');
@@ -2237,7 +2395,7 @@
     }
     function switchAuthMode(mode) {
       document.getElementById('auth-form-login').classList.toggle('hidden', mode !== 'login');
-      document.getElementById('auth-form-register').classList.toggle('hidden', mode !== 'login');
+      document.getElementById('auth-form-register').classList.toggle('hidden', mode === 'login');
       document.getElementById('auth-tab-login').className = mode === 'login' ? "flex-1 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white" : "flex-1 py-2 text-xs font-semibold text-slate-400";
       document.getElementById('auth-tab-register').className = mode === 'register' ? "flex-1 py-2 text-xs font-bold rounded-lg bg-teal-600 text-white" : "flex-1 py-2 text-xs font-semibold text-slate-400";
     }
@@ -2290,6 +2448,8 @@
       const container = document.getElementById('header-auth-container');
       const drawerName = document.getElementById('drawer-user-name');
       const gateBanner = document.getElementById('dashboard-login-gate-banner');
+      const savedProfile = JSON.parse(localStorage.getItem('targettire_profile') || '{}');
+      if (drawerName && savedProfile.name && !currentUser) drawerName.innerText = savedProfile.name;
 
       if (currentUser) {
         if (drawerName) drawerName.innerText = currentUser.name;
@@ -2438,6 +2598,15 @@
         win.classList.toggle('flex');
       }
       if (!win.classList.contains('hidden')) {
+        // Open the chat inward toward the usable/main screen area, not off the left edge.
+        const widget = document.getElementById('targettire-ai-widget');
+        if (widget) {
+          const rect = widget.getBoundingClientRect();
+          const openRight = rect.left < window.innerWidth / 2;
+          win.classList.remove('left-0', 'right-0');
+          win.classList.add(openRight ? 'left-0' : 'right-0');
+          win.style.maxWidth = 'calc(100vw - 16px)';
+        }
         setTimeout(() => document.getElementById('ai-user-input')?.focus(), 150);
       }
     }
